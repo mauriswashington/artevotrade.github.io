@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Artevotrade LLC Services — Professional Training & Pedagogical Engineering, Hospitality & F&B Consulting, Technology Transfer & AI-Augmented Solutions." />
+  <title>Services — Artevotrade LLC</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: '#1a1f3a',
+            copper: '#b47b3f',
+            cream: '#f4ecdd',
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="font-sans bg-white text-navy">
+
+  <!-- HEADER -->
+  <header class="bg-navy sticky top-0 z-50 shadow-lg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="index.html" class="flex items-center gap-1 group">
+          <span class="text-copper font-bold text-xl tracking-wide group-hover:text-amber-400 transition-colors">Artevotrade</span>
+          <span class="text-cream text-xs font-medium mt-1 ml-1">LLC</span>
+        </a>
+        <nav class="hidden md:flex items-center gap-8">
+          <a href="index.html" class="text-cream text-sm font-medium hover:text-copper transition-colors pb-1">Home</a>
+          <a href="about.html" class="text-cream text-sm font-medium hover:text-copper transition-colors pb-1">About</a>
+          <a href="services.html" class="text-copper text-sm font-medium pb-1 border-b-2 border-copper">Services</a>
+          <a href="contact.html" class="bg-copper text-white text-sm font-semibold px-5 py-2 rounded hover:bg-amber-600 transition-colors">Contact</a>
+        </nav>
+        <button id="hamburger" class="md:hidden text-cream focus:outline-none" aria-label="Toggle menu">
+          <svg id="icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+          <svg id="icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden bg-navy border-t border-white/10">
+      <div class="px-4 py-4 flex flex-col gap-4">
+        <a href="index.html" class="text-cream text-sm font-medium hover:text-copper transition-colors">Home</a>
+        <a href="about.html" class="text-cream text-sm font-medium hover:text-copper transition-colors">About</a>
+        <a href="services.html" class="text-copper text-sm font-semibold">Services</a>
+        <a href="contact.html" class="text-cream text-sm font-medium hover:text-copper transition-colors">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="bg-navy py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="text-copper text-sm font-semibold uppercase tracking-widest mb-3">What We Deliver</p>
+      <h1 class="text-cream text-4xl sm:text-5xl font-extrabold mb-4">Our Services</h1>
+      <p class="text-cream/60 text-lg max-w-2xl mx-auto">Three integrated service pillars designed to transform organizational capability — from learning to operations to technology.</p>
+    </div>
+  </section>
+
+  <!-- PILLAR 1 -->
+  <section id="training" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+        <div>
+          <div class="w-16 h-16 bg-copper/10 rounded-2xl flex items-center justify-center mb-6">
+            <svg class="w-8 h-8 text-copper" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 14l9-5-9-5-9 5 9 5z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 14l6.16-3.422A12.083 12.083 0 0121 12c0 4.418-4.03 8-9 8s-9-3.582-9-8c0-.54.06-1.065.163-1.578L12 14z"/>
+            </svg>
+          </div>
+          <div class="inline-block bg-copper/10 text-copper text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full mb-4">Pillar 01</div>
+          <h2 class="text-navy text-3xl font-bold mb-4">Professional Training & Pedagogical Engineering</h2>
+          <p class="text-navy/70 leading-relaxed mb-6">
+            We design and deliver bespoke learning solutions for organizations that need to build, upgrade, or transform workforce competencies. Our pedagogical engineering approach ensures that every program is grounded in adult learning science, aligned with measurable performance objectives, and adapted to the specific professional context of our clients.
+          </p>
+          <p class="text-navy/70 leading-relaxed mb-8">
+            From initial needs analysis to post-training impact measurement, our team manages the full learning lifecycle — ensuring that investment in human capital translates into real, lasting capability gains.
+          </p>
+          <div class="bg-cream rounded-2xl p-6 mb-8">
+            <h4 class="text-navy font-semibold text-sm uppercase tracking-wide mb-1">Sector Focus</h4>
+            <p class="text-navy/60 text-sm">Corporate organizations, government agencies, NGOs, education institutions, international development programs</p>
+          </div>
+          <a href="contact.html" class="inline-flex items-center gap-2 bg-copper text-white font-semibold px-6 py-3 rounded-lg hover:bg-amber-600 transition-colors text-sm">
+            Request a Consultation
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+        <div>
+          <h3 class="text-navy font-bold text-lg mb-6 flex items-center gap-2">
+            <span class="w-1 h-6 bg-copper rounded-full inline-block"></span>
+            Key Deliverables
+          </h3>
+          <ul class="space-y-4">
+            <li class="flex items-start gap-3 p-4 border border-navy/8 rounded-xl hover:border-copper/30 hover:bg-cream/30 transition-colors">
+              <svg class="w-5 h-5 text-copper mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              <div>
+                <p class="text-navy font-semibold text-sm">Needs Analysis & Competency Mapping</p>
+                <p class="text-navy/55 text-xs mt-0.5">Structured diagnostic processes to identify skill gaps and define target competency profiles aligned with organizational strategy.</p>
+              </div>
+            </li>
+            <li class="flex items-start gap-3 p-4 border border-navy/8 rounded-xl hover:border-copper/30 hover:bg-cream/30 transition-colors">
+              <svg class="w-5 h-5 text-copper mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              <div>
+                <p class="text-navy font-semibold text-sm">Custom Curriculum Design & Development</p>
+                <p class="text-navy/55 text-xs mt-0.5">Purpose-built training materials, learning guides, facilitator handbooks, and multimedia content developed to specification.</p>
+              </div>
+            </li>
+            <li class="flex items-start gap-3 p-4 border border-navy/8 rounded-xl hover:border-copper/30 hover:bg-cream/30 transition-colors">
+              <svg class="w-5 h-5 text-copper mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              <div>
+                <p class="text-navy font-semibold text-sm">Blended Learning (In-person, Remote, Hybrid)</p>
+                <p class="text-navy/55 text-xs mt-0.5">Flexible delivery modalities combining live facilitation, e-learning, and self-paced modules suited to distributed teams.</p>
+              </div>
+            </li>
+            <li class="flex items-start gap-3 p-4 border border-navy/8 rounded-xl hover:border-copper/30 hover:bg-cream/30 transition-colors">
+              <svg class="w-5 h-5 text-copper mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              <div>
+                <p class="text-navy font-semibold text-sm">Train-the-Trainer Programs</p>
+                <p class="text-navy/55 text-xs mt-0.5">Building internal facilitation capacity so your organization can sustain and scale training without ongoing external dependency.</p>
+              </div>
+            </li>
+            <li class="flex items-start gap-3 p-4 border border-navy/8 rounded-xl hover:border-copper/30 hover:bg-cream/30 transition-colors">
+              <svg class="w-5 h-5 text-copper mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              <div>
+                <p class="text-navy font-semibold text-sm">Post-Training Evaluation & Impact Measurement</p>
+                <p class="text-navy/55 text-xs mt-0.5">Kirkpatrick-aligned evaluation frameworks, KPI tracking, and return-on-investment reporting for training programs.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PILLAR 2 -->
+  <section id="hospitality" class="py-20 bg-cream">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+        <div class="order-2 lg:order-1">
+          <h3 class="text-navy font-bold text-lg mb-6 flex items-center gap-2">
+            <span class="w-1 h-6 bg-copper rounded-full inline-block"></span>
+            Key Deliverables
+          </h3>
+          <ul class="space-y-4">
+            <li class="flex items-start gap-3 p-4 bg-white border border-navy/8 rounded-xl hover:border-copper/30 transition-colors">
+              <svg class="w-5 h-5 text-copper mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              <div>
+                <p class="text-navy font-semibold text-sm">Operational Audits & Gap Analysis</p>
+                <p class="text-navy/55 text-xs mt-0.5">Systematic on-site or remote evaluation of current operational standards against industry benchmarks and brand requirements.</p>
+              </div>
+            </li>
+            <li class="flex items-start gap-3 p-4 bg-white border border-navy/8 rounded-xl hover:border-copper/30 transition-colors">
+              <svg class="w-5 h-5 text-copper mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              <div>
+                <p class="text-navy font-semibold text-sm">Service Standards & SOPs Development</p>
+                <p class="text-navy/55 text-xs mt-0.5">Comprehensive Standard Operating Procedures, service scripts, and performance standards tailored to your brand identity.</p>
+              </div>
+            </li>
+            <li class="flex items-start gap-3 p-4 bg-white border border-navy/8 rounded-xl hover:border-copper/30 transition-colors">
+              <svg class="w-5 h-5 text-copper mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              <div>
+                <p class="text-navy font-semibold text-sm">Staff Training & Upskilling Programs</p>
+                <p class="text-navy/55 text-xs mt-0.5">Role-specific training for front-of-house, back-of-house, management, and supervisory levels across F&B and hospitality operations.</p>
+              </div>
+            </li>
+            <li class="flex items-start gap-3 p-4 bg-white border border-navy/8 rounded-xl hover:border-copper/30 transition-colors">
+              <svg class="w-5 h-5 text-copper mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              <div>
+                <p class="text-navy font-semibold text-sm">Quality Management Systems</p>
+                <p class="text-navy/55 text-xs mt-0.5">Implementation of HACCP, ISO 22000-aligned, and brand-specific quality frameworks with audit tools and corrective action protocols.</p>
+              </div>
+            </li>
+            <li class="flex items-start gap-3 p-4 bg-white border border-navy/8 rounded-xl hover:border-copper/30 transition-colors">
+              <svg class="w-5 h-5 text-copper mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              <div>
+                <p class="text-navy font-semibold text-sm">Brand Standards Alignment</p>
+                <p class="text-navy/55 text-xs mt-0.5">Ensuring operational practices at every level are consistent with brand promise, guest experience expectations, and market positioning.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="order-1 lg:order-2">
+          <div class="w-16 h-16 bg-copper/10 rounded-2xl flex items-center justify-center mb-6">
+            <svg class="w-8 h-8 text-copper" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+            </svg>
+          </div>
+          <div class="inline-block bg-copper/10 text-copper text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full mb-4">Pillar 02</div>
+          <h2 class="text-navy text-3xl font-bold mb-4">Hospitality & F&B Consulting</h2>
+          <p class="text-navy/70 leading-relaxed mb-6">
+            Our hospitality and food & beverage consulting practice partners with establishments seeking to elevate their service culture, optimize operational efficiency, and align their teams with world-class standards. We work with hotels, restaurants, catering companies, and event venues across multiple markets.
+          </p>
+          <p class="text-navy/70 leading-relaxed mb-8">
+            The firm's consultants bring direct, hands-on experience in operational management and service excellence, enabling us to provide practical, implementable recommendations rather than theoretical frameworks alone.
+          </p>
+          <div class="bg-navy rounded-2xl p-6 mb-8">
+            <h4 class="text-cream font-semibold text-sm uppercase tracking-wide mb-1">Sector Focus</h4>
+            <p class="text-cream/60 text-sm">Hotels & resorts, restaurants & brasseries, catering & banqueting, event venues, food & beverage groups</p>
+          </div>
+          <a href="contact.html" class="inline-flex items-center gap-2 bg-copper text-white font-semibold px-6 py-3 rounded-lg hover:bg-amber-600 transition-colors text-sm">
+            Request a Consultation
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PILLAR 3 -->
+  <section id="technology" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+        <div>
+          <div class="w-16 h-16 bg-copper/10 rounded-2xl flex items-center justify-center mb-6">
+            <svg class="w-8 h-8 text-copper" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/>
+            </svg>
+          </div>
+          <div class="inline-block bg-copper/10 text-copper text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full mb-4">Pillar 03</div>
+          <h2 class="text-navy text-3xl font-bold mb-4">Technology Transfer & AI-Augmented Solutions</h2>
+          <p class="text-navy/70 leading-relaxed mb-6">
+            In an era of accelerating digital transformation, Artevotrade LLC supports organizations in navigating the adoption of new technologies — with a particular focus on artificial intelligence tools, knowledge management systems, and sustainable digital workflows.
+          </p>
+          <p class="text-navy/70 leading-relaxed mb-8">
+            Our technology transfer methodology prioritizes human capital: we ensure that technology adoption is accompanied by genuine understanding, internalized processes, and the organizational capacity to sustain and evolve the investment over time.
+          </p>
+          <div class="bg-cream rounded-2xl p-6 mb-8">
+            <h4 class="text-navy font-semibold text-sm uppercase tracking-wide mb-1">Sector Focus</h4>
+            <p class="text-navy/60 text-sm">Manufacturing, professional services, public sector, healthcare administration, education technology, NGOs</p>
+          </div>
+          <a href="contact.html" class="inline-flex items-center gap-2 bg-copper text-white font-semibold px-6 py-3 rounded-lg hover:bg-amber-600 transition-colors text-sm">
+            Request a Consultation
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+        <div>
+          <h3 class="text-navy font-bold text-lg mb-6 flex items-center gap-2">
+            <span class="w-1 h-6 bg-copper rounded-full inline-block"></span>
+            Key Deliverables
+          </h3>
+          <ul class="space-y-4">
+            <li class="flex items-start gap-3 p-4 border border-navy/8 rounded-xl hover:border-copper/30 hover:bg-cream/30 transition-colors">
+              <svg class="w-5 h-5 text-copper mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              <div>
+                <p class="text-navy font-semibold text-sm">Technology Readiness Assessment</p>
+                <p class="text-navy/55 text-xs mt-0.5">Structured evaluation of your organization's current digital maturity, infrastructure, and human capability baseline.</p>
+              </div>
+            </li>
+            <li class="flex items-start gap-3 p-4 border border-navy/8 rounded-xl hover:border-copper/30 hover:bg-cream/30 transition-colors">
+              <svg class="w-5 h-5 text-copper mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              <div>
+                <p class="text-navy font-semibold text-sm">Digital Transformation Roadmaps</p>
+                <p class="text-navy/55 text-xs mt-0.5">Phased, prioritized implementation plans that align technology investments with business objectives and resource realities.</p>
+              </div>
+            </li>
+            <li class="flex items-start gap-3 p-4 border border-navy/8 rounded-xl hover:border-copper/30 hover:bg-cream/30 transition-colors">
+              <svg class="w-5 h-5 text-copper mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              <div>
+                <p class="text-navy font-semibold text-sm">AI Tool Integration & Workflow Optimization</p>
+                <p class="text-navy/55 text-xs mt-0.5">Identifying, piloting, and embedding AI-augmented tools within existing operational workflows for measurable efficiency gains.</p>
+              </div>
+            </li>
+            <li class="flex items-start gap-3 p-4 border border-navy/8 rounded-xl hover:border-copper/30 hover:bg-cream/30 transition-colors">
+              <svg class="w-5 h-5 text-copper mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              <div>
+                <p class="text-navy font-semibold text-sm">Change Management & Adoption Support</p>
+                <p class="text-navy/55 text-xs mt-0.5">Structured change management programs that address human resistance, communication strategy, and stakeholder engagement.</p>
+              </div>
+            </li>
+            <li class="flex items-start gap-3 p-4 border border-navy/8 rounded-xl hover:border-copper/30 hover:bg-cream/30 transition-colors">
+              <svg class="w-5 h-5 text-copper mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              <div>
+                <p class="text-navy font-semibold text-sm">Knowledge Management Systems</p>
+                <p class="text-navy/55 text-xs mt-0.5">Designing and implementing systems for capturing, organizing, and sharing organizational knowledge to prevent institutional memory loss.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-copper py-16">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-white text-3xl font-bold mb-4">Ready to elevate your organization's capabilities?</h2>
+      <p class="text-white/80 text-lg mb-8">Contact our team to discuss your specific needs and how we can design a tailored solution.</p>
+      <a href="contact.html" class="inline-block bg-navy text-cream font-semibold px-10 py-4 rounded-lg hover:bg-navy/80 transition-colors shadow-lg text-sm">Get in Touch</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-navy text-cream">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+        <div>
+          <div class="flex items-center gap-1 mb-4">
+            <span class="text-copper font-bold text-xl">Artevotrade</span>
+            <span class="text-cream text-xs font-medium ml-1">LLC</span>
+          </div>
+          <p class="text-cream/60 text-sm leading-relaxed mb-4">International professional training, hospitality consulting, and technology transfer firm operating worldwide.</p>
+          <p class="text-cream/50 text-xs">1209 Mountain Road PL NE, Ste N<br/>Albuquerque, NM 87110, USA</p>
+          <p class="text-cream/40 text-xs mt-2">NM Business ID: 0008030574</p>
+        </div>
+        <div>
+          <h4 class="text-cream font-semibold text-sm uppercase tracking-wider mb-5">Navigation</h4>
+          <ul class="space-y-3">
+            <li><a href="index.html" class="text-cream/60 text-sm hover:text-copper transition-colors">Home</a></li>
+            <li><a href="about.html" class="text-cream/60 text-sm hover:text-copper transition-colors">About</a></li>
+            <li><a href="services.html" class="text-cream/60 text-sm hover:text-copper transition-colors">Services</a></li>
+            <li><a href="contact.html" class="text-cream/60 text-sm hover:text-copper transition-colors">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-cream font-semibold text-sm uppercase tracking-wider mb-5">Legal</h4>
+          <ul class="space-y-3">
+            <li><a href="terms.html" class="text-cream/60 text-sm hover:text-copper transition-colors">Terms of Service</a></li>
+            <li><a href="privacy.html" class="text-cream/60 text-sm hover:text-copper transition-colors">Privacy Policy</a></li>
+            <li><a href="cookies.html" class="text-cream/60 text-sm hover:text-copper transition-colors">Cookie Policy</a></li>
+            <li><a href="refund.html" class="text-cream/60 text-sm hover:text-copper transition-colors">Refund Policy</a></li>
+            <li><a href="legal.html" class="text-cream/60 text-sm hover:text-copper transition-colors">Legal Notice</a></li>
+            <li><a href="accessibility.html" class="text-cream/60 text-sm hover:text-copper transition-colors">Accessibility</a></li>
+            <li><a href="disclaimer.html" class="text-cream/60 text-sm hover:text-copper transition-colors">Disclaimer</a></li>
+            <li><a href="aml.html" class="text-cream/60 text-sm hover:text-copper transition-colors">AML Policy</a></li>
+            <li><a href="dpa.html" class="text-cream/60 text-sm hover:text-copper transition-colors">DPA</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-white/10 mt-12 pt-8 text-center">
+        <p class="text-cream/40 text-xs">© 2025 Artevotrade LLC. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- COOKIE BANNER -->
+  <div id="cookie-banner" class="fixed bottom-0 left-0 right-0 z-50 bg-navy border-t border-copper/30 shadow-2xl px-4 py-4 hidden">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p class="text-cream/80 text-sm text-center sm:text-left">
+        We use cookies to improve your experience. By continuing, you accept our
+        <a href="cookies.html" class="text-copper underline hover:text-amber-400 transition-colors">Cookie Policy</a>.
+      </p>
+      <div class="flex items-center gap-3 flex-shrink-0">
+        <a href="cookies.html" class="text-cream/60 text-sm hover:text-cream transition-colors">Learn More</a>
+        <button id="accept-cookies" class="bg-copper text-white text-sm font-semibold px-6 py-2 rounded hover:bg-amber-600 transition-colors">Accept</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const iconOpen = document.getElementById('icon-open');
+    const iconClose = document.getElementById('icon-close');
+    hamburger.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+      iconOpen.classList.toggle('hidden');
+      iconClose.classList.toggle('hidden');
+    });
+    const cookieBanner = document.getElementById('cookie-banner');
+    const acceptBtn = document.getElementById('accept-cookies');
+    if (!localStorage.getItem('artevotrade_cookies_accepted')) {
+      cookieBanner.classList.remove('hidden');
+    }
+    acceptBtn.addEventListener('click', () => {
+      localStorage.setItem('artevotrade_cookies_accepted', 'true');
+      cookieBanner.classList.add('hidden');
+    });
+  </script>
+</body>
+</html>
