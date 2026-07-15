@@ -1,0 +1,11 @@
+<svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+  <!-- Navy background circle -->
+  <circle cx="16" cy="16" r="16" fill="#1a1f3a"/>
+  <!-- Compass/Globe icon in copper -->
+  <circle cx="16" cy="16" r="12" fill="none" stroke="#b47b3f" stroke-width="1.5"/>
+  <circle cx="16" cy="16" r="7" fill="none" stroke="#b47b3f" stroke-width="0.8" stroke-dasharray="2,1.5"/>
+  <line x1="16" y1="4" x2="16" y2="28" stroke="#b47b3f" stroke-width="1"/>
+  <line x1="4" y1="16" x2="28" y2="16" stroke="#b47b3f" stroke-width="1"/>
+  <circle cx="16" cy="16" r="2" fill="#b47b3f"/>
+  <polygon points="16,5 14,10 18,10" fill="#b47b3f"/>
+</svg>
