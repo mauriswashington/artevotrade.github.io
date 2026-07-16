@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <meta name="description" content="Artevotrade LLC — International professional training consultancy and technology transfer firm operating worldwide.">
   <title>Artevotrade LLC — Professional Training &amp; Technology Transfer</title>
+  <meta property="og:title" content="Artevotrade LLC — Professional Training &amp; Technology Transfer">
+  <meta property="og:description" content="Artevotrade LLC — International professional training consultancy and technology transfer firm operating worldwide.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://artevotrade.com/">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -63,7 +67,7 @@
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16">
       <a href="index.html" class="flex-shrink-0">
-        <svg viewBox="0 0 200 50" width="160" height="40" xmlns="http://www.w3.org/2000/svg">
+        <svg viewBox="0 0 220 50" width="160" height="40" xmlns="http://www.w3.org/2000/svg">
           <circle cx="25" cy="25" r="22" fill="none" stroke="#b47b3f" stroke-width="2"/>
           <circle cx="25" cy="25" r="14" fill="none" stroke="#b47b3f" stroke-width="1" stroke-dasharray="3,2"/>
           <line x1="25" y1="3" x2="25" y2="47" stroke="#b47b3f" stroke-width="1.5"/>
@@ -71,7 +75,7 @@
           <circle cx="25" cy="25" r="3" fill="#b47b3f"/>
           <polygon points="25,5 22,12 28,12" fill="#b47b3f"/>
           <text x="56" y="32" font-family="Inter,sans-serif" font-weight="700" font-size="17" fill="#f4ecdd" letter-spacing="1">ARTEVOTRADE</text>
-          <text x="181" y="20" font-family="Inter,sans-serif" font-weight="600" font-size="9" fill="#b47b3f">LLC</text>
+          <text x="198" y="21" font-family="Inter,sans-serif" font-weight="600" font-size="9" fill="#b47b3f" letter-spacing="1">LLC</text>
         </svg>
       </a>
       <nav class="hidden md:flex items-center gap-8">
@@ -176,8 +180,7 @@
     </div>
 
     <!-- Scroll indicator -->
-    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 chevron-bounce opacity-40">
-      <span class="text-cream text-xs font-medium tracking-widest uppercase" style="letter-spacing:.15em">Scroll</span>
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 chevron-bounce opacity-40" aria-hidden="true">
       <svg class="w-5 h-5 text-copper" fill="none" stroke="#b47b3f" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
     </div>
   </div>
@@ -509,7 +512,7 @@
     <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
       <div>
         <a href="index.html" class="inline-block mb-4">
-          <svg viewBox="0 0 200 50" width="180" height="45" xmlns="http://www.w3.org/2000/svg">
+          <svg viewBox="0 0 220 50" width="180" height="45" xmlns="http://www.w3.org/2000/svg">
             <circle cx="25" cy="25" r="22" fill="none" stroke="#b47b3f" stroke-width="2"/>
             <circle cx="25" cy="25" r="14" fill="none" stroke="#b47b3f" stroke-width="1" stroke-dasharray="3,2"/>
             <line x1="25" y1="3" x2="25" y2="47" stroke="#b47b3f" stroke-width="1.5"/>
@@ -517,11 +520,12 @@
             <circle cx="25" cy="25" r="3" fill="#b47b3f"/>
             <polygon points="25,5 22,12 28,12" fill="#b47b3f"/>
             <text x="56" y="32" font-family="Inter,sans-serif" font-weight="700" font-size="17" fill="#f4ecdd" letter-spacing="1">ARTEVOTRADE</text>
-            <text x="181" y="20" font-family="Inter,sans-serif" font-weight="600" font-size="9" fill="#b47b3f">LLC</text>
+            <text x="198" y="21" font-family="Inter,sans-serif" font-weight="600" font-size="9" fill="#b47b3f" letter-spacing="1">LLC</text>
           </svg>
         </a>
         <p class="text-cream/60 text-sm leading-relaxed mb-4">International professional training consultancy and technology transfer firm operating worldwide.</p>
         <p class="text-cream/50 text-xs">1209 Mountain Road PL NE, #10014<br>Albuquerque, NM 87110, USA</p>
+        <p class="text-cream/50 text-xs mt-2"><a href="mailto:contact@artevotrade.com" class="hover:text-copper transition-colors">contact@artevotrade.com</a></p>
       </div>
       <div>
         <h4 class="text-cream font-semibold text-sm uppercase tracking-wider mb-5" style="letter-spacing:.15em;">Navigation</h4>
@@ -574,68 +578,97 @@
 
 <script>
   // Mobile menu
-  const menuBtn = document.getElementById('menu-btn');
-  const mobileMenu = document.getElementById('mobile-menu');
-  menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+  try {
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+  } catch (err) { console.error('menu init failed', err); }
 
   // Cookie banner
-  if (!localStorage.getItem('artevotrade_cookies_accepted')) {
-    document.getElementById('cookie-banner').classList.remove('hidden');
-  }
-  document.getElementById('accept-cookies').addEventListener('click', () => {
-    localStorage.setItem('artevotrade_cookies_accepted','true');
-    document.getElementById('cookie-banner').classList.add('hidden');
-  });
+  try {
+    if (!localStorage.getItem('artevotrade_cookies_accepted')) {
+      document.getElementById('cookie-banner').classList.remove('hidden');
+    }
+    document.getElementById('accept-cookies').addEventListener('click', () => {
+      try { localStorage.setItem('artevotrade_cookies_accepted','true'); } catch (err) { /* storage unavailable */ }
+      document.getElementById('cookie-banner').classList.add('hidden');
+    });
+  } catch (err) { console.error('cookie banner init failed', err); }
 
   // Back to top
-  const btt = document.getElementById('back-to-top');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 400) btt.classList.replace('hidden','flex');
-    else btt.classList.replace('flex','hidden');
-  });
+  try {
+    const btt = document.getElementById('back-to-top');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 400) btt.classList.replace('hidden','flex');
+      else btt.classList.replace('flex','hidden');
+    });
+  } catch (err) { console.error('back-to-top init failed', err); }
 
   // Scroll reveal
-  const revealObs = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('revealed'); revealObs.unobserve(e.target); }});
-  }, {threshold: 0.1});
-  document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+  try {
+    const revealObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('revealed'); revealObs.unobserve(e.target); }});
+    }, {threshold: 0.1});
+    document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+  } catch (err) { console.error('scroll reveal init failed', err); }
 
   // Stat border expand
-  const statBorders = document.querySelectorAll('.stat-border');
-  const statObs = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('active'); statObs.unobserve(e.target); }});
-  },{threshold:0.5});
-  statBorders.forEach(el => statObs.observe(el));
+  try {
+    const statBorders = document.querySelectorAll('.stat-border');
+    const statObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('active'); statObs.unobserve(e.target); }});
+    },{threshold:0.3});
+    statBorders.forEach(el => statObs.observe(el));
+  } catch (err) { console.error('stat border init failed', err); }
 
   // Counter animation
-  function animateCounter(el, target, duration) {
-    let start = 0;
-    const step = target / (duration / 16);
-    const timer = setInterval(() => {
-      start += step;
-      if (start >= target) { el.textContent = target + (el.dataset.suffix||''); clearInterval(timer); }
-      else el.textContent = Math.floor(start) + (el.dataset.suffix||'');
-    }, 16);
-  }
-  const counterObs = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if(e.isIntersecting){
-        const el = e.target;
-        animateCounter(el, parseInt(el.dataset.target), 1500);
-        counterObs.unobserve(el);
-      }
+  try {
+    function animateCounter(el, target, duration) {
+      let start = 0;
+      const step = target / (duration / 16);
+      const timer = setInterval(() => {
+        start += step;
+        if (start >= target) { el.textContent = target + (el.dataset.suffix||''); clearInterval(timer); }
+        else el.textContent = Math.floor(start) + (el.dataset.suffix||'');
+      }, 16);
+    }
+    const counterEls = document.querySelectorAll('[data-target]');
+    const counterObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if(e.isIntersecting){
+          const el = e.target;
+          animateCounter(el, parseInt(el.dataset.target, 10), 1500);
+          counterObs.unobserve(el);
+        }
+      });
+    },{threshold:0.3});
+    counterEls.forEach(el => counterObs.observe(el));
+    // Fallback: if a counter is already in the initial viewport, some browsers
+    // fire the observer callback before layout settles behind the hero — force
+    // a check once on load so counters never get stuck at 0.
+    window.addEventListener('load', () => {
+      counterEls.forEach(el => {
+        if (el.textContent.trim() === '0') {
+          const rect = el.getBoundingClientRect();
+          if (rect.top < window.innerHeight && rect.bottom > 0) {
+            animateCounter(el, parseInt(el.dataset.target, 10), 1500);
+            counterObs.unobserve(el);
+          }
+        }
+      });
     });
-  },{threshold:0.5});
-  document.querySelectorAll('[data-target]').forEach(el => counterObs.observe(el));
+  } catch (err) { console.error('counter init failed', err); }
 
   // Methodology line animation
-  const methodLineObs = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if(e.isIntersecting){ e.target.style.width='100%'; methodLineObs.unobserve(e.target); }});
-  },{threshold:0.3});
-  document.querySelectorAll('.method-line').forEach(el => {
-    el.style.transition = 'width 1.5s ease';
-    methodLineObs.observe(el);
-  });
+  try {
+    const methodLineObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if(e.isIntersecting){ e.target.style.width='100%'; methodLineObs.unobserve(e.target); }});
+    },{threshold:0.3});
+    document.querySelectorAll('.method-line').forEach(el => {
+      el.style.transition = 'width 1.5s ease';
+      methodLineObs.observe(el);
+    });
+  } catch (err) { console.error('methodology line init failed', err); }
 </script>
 </body>
 </html>
