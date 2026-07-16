@@ -1,46 +1,451 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Artevotrade LLC Services — Professional Training & Pedagogical Engineering, Hospitality & F&B Consulting, Technology Transfer & AI-Augmented Solutions." />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta name="description" content="Artevotrade LLC Services — Professional Training &amp; Pedagogical Engineering, Hospitality &amp; F&amp;B Consulting, Technology Transfer &amp; AI-Augmented Solutions.">
   <title>Services — Artevotrade LLC</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            navy: '#1a1f3a',
-            copper: '#b47b3f',
-            cream: '#f4ecdd',
-          },
-          fontFamily: {
-            sans: ['Inter', 'sans-serif'],
-          }
-        }
-      }
+      theme: { extend: { colors:{navy:'#1a1f3a',copper:'#b47b3f',cream:'#f4ecdd'}, fontFamily:{sans:['Inter','sans-serif'],display:['Poppins','sans-serif']} } }
     }
   </script>
   <style>
-    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
-    .revealed { opacity: 1; transform: none; }
-    .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
-    .accordion-content.open { max-height: 400px; }
+    h1,h2,h3,h4 { font-family:'Poppins',sans-serif; }
+    body { line-height:1.75; }
+    .reveal { opacity:0; transform:translateY(24px); transition:opacity .6s ease,transform .6s ease; }
+    .revealed { opacity:1; transform:none; }
+    .reveal-delay-1 { transition-delay:.1s; }
+    .reveal-delay-2 { transition-delay:.2s; }
+    @media(prefers-reduced-motion:reduce){.reveal,.revealed{opacity:1;transform:none;transition:none;}*{animation-duration:.01ms!important;transition-duration:.01ms!important;}}
+    .btn-primary { transition:transform .2s ease,box-shadow .2s ease; }
+    .btn-primary:hover { transform:scale(1.02); box-shadow:0 8px 24px rgba(180,123,63,.35); }
+    @keyframes lineGrow { from{width:0} to{width:100%} }
+    .copper-line-animate { animation:lineGrow 1.2s ease forwards; }
+    .faq-answer { max-height:0; overflow:hidden; transition:max-height .4s ease; }
+    .faq-icon { transition:transform .3s ease; }
+    .process-line { width:2px; height:40px; background:linear-gradient(to bottom,#b47b3f,rgba(180,123,63,.2)); margin:0 auto; }
   </style>
 </head>
 <body class="font-sans bg-white text-navy">
 
-  <!-- HEADER -->
-  <header class="bg-navy sticky top-0 z-50 shadow-lg">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-16">
-        <a href="index.html" class="flex items-center gap-2 flex-shrink-0">
-          <svg viewBox="0 0 200 50" width="160" height="40" xmlns="http://www.w3.org/2000/svg">
+<!-- HEADER -->
+<header class="bg-navy sticky top-0 z-50 shadow-lg">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <a href="index.html" class="flex-shrink-0">
+        <svg viewBox="0 0 200 50" width="160" height="40" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="25" cy="25" r="22" fill="none" stroke="#b47b3f" stroke-width="2"/>
+          <circle cx="25" cy="25" r="14" fill="none" stroke="#b47b3f" stroke-width="1" stroke-dasharray="3,2"/>
+          <line x1="25" y1="3" x2="25" y2="47" stroke="#b47b3f" stroke-width="1.5"/>
+          <line x1="3" y1="25" x2="47" y2="25" stroke="#b47b3f" stroke-width="1.5"/>
+          <circle cx="25" cy="25" r="3" fill="#b47b3f"/>
+          <polygon points="25,5 22,12 28,12" fill="#b47b3f"/>
+          <text x="56" y="32" font-family="Inter,sans-serif" font-weight="700" font-size="17" fill="#f4ecdd" letter-spacing="1">ARTEVOTRADE</text>
+          <text x="181" y="20" font-family="Inter,sans-serif" font-weight="600" font-size="9" fill="#b47b3f">LLC</text>
+        </svg>
+      </a>
+      <nav class="hidden md:flex items-center gap-8">
+        <a href="index.html" class="text-cream/80 hover:text-copper text-sm font-medium transition-colors duration-200">Home</a>
+        <a href="about.html" class="text-cream/80 hover:text-copper text-sm font-medium transition-colors duration-200">About</a>
+        <a href="services.html" class="text-copper text-sm font-medium border-b border-copper pb-0.5">Services</a>
+        <a href="contact.html" class="bg-copper text-white px-5 py-2 rounded text-sm font-semibold btn-primary min-h-[44px] flex items-center">Contact Us</a>
+      </nav>
+      <button id="menu-btn" class="md:hidden text-cream focus:outline-none min-w-[44px] min-h-[44px] flex items-center justify-center" aria-label="Toggle menu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden pb-4 border-t border-cream/10 mt-2">
+      <nav class="flex flex-col gap-3 pt-4">
+        <a href="index.html" class="text-cream/80 hover:text-copper text-sm min-h-[44px] flex items-center transition-colors">Home</a>
+        <a href="about.html" class="text-cream/80 hover:text-copper text-sm min-h-[44px] flex items-center transition-colors">About</a>
+        <a href="services.html" class="text-copper font-medium text-sm min-h-[44px] flex items-center">Services</a>
+        <a href="contact.html" class="text-copper font-medium text-sm min-h-[44px] flex items-center">Contact Us</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="bg-navy py-24 relative overflow-hidden">
+  <div class="absolute inset-0 pointer-events-none">
+    <div class="absolute -top-20 -left-20 w-96 h-96 rounded-full" style="background:radial-gradient(circle,rgba(180,123,63,.1) 0%,transparent 70%)"></div>
+    <div class="absolute bottom-0 right-0 w-80 h-80 rounded-full" style="background:radial-gradient(circle,rgba(180,123,63,.06) 0%,transparent 70%)"></div>
+  </div>
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <p class="text-copper text-xs font-semibold uppercase mb-4" style="letter-spacing:.15em;">What We Offer</p>
+    <h1 class="text-cream font-bold text-5xl sm:text-6xl mb-4">Our Services</h1>
+    <div class="copper-line-animate h-0.5 bg-copper mt-4 mb-6 max-w-xs" style="width:0"></div>
+    <p class="text-copper font-semibold text-xl" style="font-family:'Poppins',sans-serif;">Comprehensive expertise across industries</p>
+  </div>
+</section>
+
+<!-- SERVICE PILLAR 1 -->
+<section class="bg-white py-20">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+      <!-- Text content -->
+      <div class="reveal">
+        <div class="flex items-baseline gap-4 mb-4">
+          <span class="text-copper/20 font-extrabold text-7xl leading-none pointer-events-none select-none" style="font-family:'Poppins',sans-serif;">01</span>
+          <div class="w-1 h-12 bg-copper rounded ml-2"></div>
+        </div>
+        <h2 class="text-navy font-bold text-3xl mb-4">Professional Training &amp; Pedagogical Engineering</h2>
+        <p class="text-navy/70 text-base mb-6">We design and deliver custom learning solutions grounded in adult learning principles and instructional design science. From single workshops to multi-year institutional programs, every offering is precisely engineered for your audience and context.</p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
+          <div class="flex items-start gap-2 text-navy/70 text-sm"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" stroke="#b47b3f" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Curriculum design &amp; development</div>
+          <div class="flex items-start gap-2 text-navy/70 text-sm"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" stroke="#b47b3f" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Competency framework development</div>
+          <div class="flex items-start gap-2 text-navy/70 text-sm"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" stroke="#b47b3f" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Train-the-trainer programs</div>
+          <div class="flex items-start gap-2 text-navy/70 text-sm"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" stroke="#b47b3f" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Blended &amp; e-learning solutions</div>
+          <div class="flex items-start gap-2 text-navy/70 text-sm"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" stroke="#b47b3f" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Assessment &amp; evaluation design</div>
+          <div class="flex items-start gap-2 text-navy/70 text-sm"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" stroke="#b47b3f" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Multilingual program delivery</div>
+        </div>
+
+        <div class="flex flex-wrap gap-2 mb-8">
+          <span class="bg-cream text-navy/70 text-xs font-medium px-3 py-1 rounded-full">Education</span>
+          <span class="bg-cream text-navy/70 text-xs font-medium px-3 py-1 rounded-full">Government</span>
+          <span class="bg-cream text-navy/70 text-xs font-medium px-3 py-1 rounded-full">Corporate</span>
+          <span class="bg-cream text-navy/70 text-xs font-medium px-3 py-1 rounded-full">NGO</span>
+          <span class="bg-cream text-navy/70 text-xs font-medium px-3 py-1 rounded-full">Healthcare</span>
+        </div>
+
+        <a href="contact.html" class="inline-flex items-center gap-2 text-copper font-semibold text-sm hover:underline transition-all">Discuss This Service <span>→</span></a>
+      </div>
+
+      <!-- Process timeline -->
+      <div class="reveal reveal-delay-1">
+        <div class="bg-cream rounded-2xl p-8">
+          <h3 class="text-navy font-semibold text-base mb-8 text-center">How We Work</h3>
+          <div class="flex flex-col items-center">
+            <div class="flex items-center gap-4 w-full mb-0">
+              <div class="w-10 h-10 rounded-full border-2 border-copper flex items-center justify-center flex-shrink-0">
+                <span class="text-copper font-bold text-sm">1</span>
+              </div>
+              <div>
+                <p class="text-navy font-semibold text-sm">Assess Needs</p>
+                <p class="text-navy/50 text-xs">Stakeholder interviews, gap analysis, context review</p>
+              </div>
+            </div>
+            <div class="process-line my-2"></div>
+            <div class="flex items-center gap-4 w-full">
+              <div class="w-10 h-10 rounded-full border-2 border-copper flex items-center justify-center flex-shrink-0">
+                <span class="text-copper font-bold text-sm">2</span>
+              </div>
+              <div>
+                <p class="text-navy font-semibold text-sm">Design Program</p>
+                <p class="text-navy/50 text-xs">Objectives, content, modalities, assessment criteria</p>
+              </div>
+            </div>
+            <div class="process-line my-2"></div>
+            <div class="flex items-center gap-4 w-full">
+              <div class="w-10 h-10 rounded-full border-2 border-copper flex items-center justify-center flex-shrink-0">
+                <span class="text-copper font-bold text-sm">3</span>
+              </div>
+              <div>
+                <p class="text-navy font-semibold text-sm">Deliver &amp; Facilitate</p>
+                <p class="text-navy/50 text-xs">Expert-led in-person, hybrid, or online sessions</p>
+              </div>
+            </div>
+            <div class="process-line my-2"></div>
+            <div class="flex items-center gap-4 w-full">
+              <div class="w-10 h-10 rounded-full bg-copper border-2 border-copper flex items-center justify-center flex-shrink-0">
+                <span class="text-white font-bold text-sm">4</span>
+              </div>
+              <div>
+                <p class="text-navy font-semibold text-sm">Evaluate &amp; Report</p>
+                <p class="text-navy/50 text-xs">KPI measurement, post-engagement impact report</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICE PILLAR 2 -->
+<section class="bg-cream py-20">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+      <!-- Process timeline (left on this one) -->
+      <div class="reveal order-2 lg:order-1">
+        <div class="bg-white rounded-2xl p-8 shadow-sm">
+          <h3 class="text-navy font-semibold text-base mb-8 text-center">How We Work</h3>
+          <div class="flex flex-col items-center">
+            <div class="flex items-center gap-4 w-full mb-0">
+              <div class="w-10 h-10 rounded-full border-2 border-copper flex items-center justify-center flex-shrink-0">
+                <span class="text-copper font-bold text-sm">1</span>
+              </div>
+              <div>
+                <p class="text-navy font-semibold text-sm">Operational Audit</p>
+                <p class="text-navy/50 text-xs">Site visits, mystery audits, SOP review, team interviews</p>
+              </div>
+            </div>
+            <div class="process-line my-2"></div>
+            <div class="flex items-center gap-4 w-full">
+              <div class="w-10 h-10 rounded-full border-2 border-copper flex items-center justify-center flex-shrink-0">
+                <span class="text-copper font-bold text-sm">2</span>
+              </div>
+              <div>
+                <p class="text-navy font-semibold text-sm">Strategy Design</p>
+                <p class="text-navy/50 text-xs">SOP development, menu engineering, service standards</p>
+              </div>
+            </div>
+            <div class="process-line my-2"></div>
+            <div class="flex items-center gap-4 w-full">
+              <div class="w-10 h-10 rounded-full border-2 border-copper flex items-center justify-center flex-shrink-0">
+                <span class="text-copper font-bold text-sm">3</span>
+              </div>
+              <div>
+                <p class="text-navy font-semibold text-sm">Implementation</p>
+                <p class="text-navy/50 text-xs">Coaching, training, rollout support on-site</p>
+              </div>
+            </div>
+            <div class="process-line my-2"></div>
+            <div class="flex items-center gap-4 w-full">
+              <div class="w-10 h-10 rounded-full bg-copper border-2 border-copper flex items-center justify-center flex-shrink-0">
+                <span class="text-white font-bold text-sm">4</span>
+              </div>
+              <div>
+                <p class="text-navy font-semibold text-sm">Performance Review</p>
+                <p class="text-navy/50 text-xs">KPIs, guest satisfaction benchmarks, profitability analysis</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Text content -->
+      <div class="reveal reveal-delay-1 order-1 lg:order-2">
+        <div class="flex items-baseline gap-4 mb-4">
+          <span class="text-copper/20 font-extrabold text-7xl leading-none pointer-events-none select-none" style="font-family:'Poppins',sans-serif;">02</span>
+          <div class="w-1 h-12 bg-copper rounded ml-2"></div>
+        </div>
+        <h2 class="text-navy font-bold text-3xl mb-4">Hospitality &amp; F&amp;B Consulting</h2>
+        <p class="text-navy/70 text-base mb-6">We bring operational excellence to hotels, restaurants, catering groups, and food service enterprises worldwide. Our hospitality consultants combine deep industry experience with structured methodologies to elevate service quality, optimize F&amp;B profitability, and build high-performing teams.</p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
+          <div class="flex items-start gap-2 text-navy/70 text-sm"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" stroke="#b47b3f" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Service standard design &amp; audit</div>
+          <div class="flex items-start gap-2 text-navy/70 text-sm"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" stroke="#b47b3f" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>F&amp;B operational restructuring</div>
+          <div class="flex items-start gap-2 text-navy/70 text-sm"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" stroke="#b47b3f" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Menu engineering &amp; costing</div>
+          <div class="flex items-start gap-2 text-navy/70 text-sm"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" stroke="#b47b3f" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>SOP development &amp; documentation</div>
+          <div class="flex items-start gap-2 text-navy/70 text-sm"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" stroke="#b47b3f" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Team coaching &amp; leadership training</div>
+          <div class="flex items-start gap-2 text-navy/70 text-sm"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" stroke="#b47b3f" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Guest experience optimization</div>
+        </div>
+
+        <div class="flex flex-wrap gap-2 mb-8">
+          <span class="bg-navy/8 text-navy/70 text-xs font-medium px-3 py-1 rounded-full">Hotels &amp; Resorts</span>
+          <span class="bg-navy/8 text-navy/70 text-xs font-medium px-3 py-1 rounded-full">Restaurants</span>
+          <span class="bg-navy/8 text-navy/70 text-xs font-medium px-3 py-1 rounded-full">Catering Groups</span>
+          <span class="bg-navy/8 text-navy/70 text-xs font-medium px-3 py-1 rounded-full">Food Service</span>
+        </div>
+
+        <a href="contact.html" class="inline-flex items-center gap-2 text-copper font-semibold text-sm hover:underline transition-all">Discuss This Service <span>→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICE PILLAR 3 -->
+<section class="bg-white py-20">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+      <!-- Text content -->
+      <div class="reveal">
+        <div class="flex items-baseline gap-4 mb-4">
+          <span class="text-copper/20 font-extrabold text-7xl leading-none pointer-events-none select-none" style="font-family:'Poppins',sans-serif;">03</span>
+          <div class="w-1 h-12 bg-copper rounded ml-2"></div>
+        </div>
+        <h2 class="text-navy font-bold text-3xl mb-4">Technology Transfer &amp; AI-Augmented Solutions</h2>
+        <p class="text-navy/70 text-base mb-6">We help organizations navigate digital transformation and knowledge transfer with clarity and confidence. Our advisors design practical AI-augmented workflows, implement technology transfer frameworks, and build internal digital capabilities — always anchored in real-world applicability.</p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
+          <div class="flex items-start gap-2 text-navy/70 text-sm"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" stroke="#b47b3f" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Digital transformation roadmapping</div>
+          <div class="flex items-start gap-2 text-navy/70 text-sm"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" stroke="#b47b3f" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>AI workflow design &amp; integration</div>
+          <div class="flex items-start gap-2 text-navy/70 text-sm"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" stroke="#b47b3f" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Technology transfer frameworks</div>
+          <div class="flex items-start gap-2 text-navy/70 text-sm"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" stroke="#b47b3f" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Digital capability building</div>
+          <div class="flex items-start gap-2 text-navy/70 text-sm"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" stroke="#b47b3f" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Knowledge management systems</div>
+          <div class="flex items-start gap-2 text-navy/70 text-sm"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" stroke="#b47b3f" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Institutional readiness assessment</div>
+        </div>
+
+        <div class="flex flex-wrap gap-2 mb-8">
+          <span class="bg-cream text-navy/70 text-xs font-medium px-3 py-1 rounded-full">Technology</span>
+          <span class="bg-cream text-navy/70 text-xs font-medium px-3 py-1 rounded-full">Government</span>
+          <span class="bg-cream text-navy/70 text-xs font-medium px-3 py-1 rounded-full">Education</span>
+          <span class="bg-cream text-navy/70 text-xs font-medium px-3 py-1 rounded-full">Corporate</span>
+          <span class="bg-cream text-navy/70 text-xs font-medium px-3 py-1 rounded-full">Healthcare</span>
+        </div>
+
+        <a href="contact.html" class="inline-flex items-center gap-2 text-copper font-semibold text-sm hover:underline transition-all">Discuss This Service <span>→</span></a>
+      </div>
+
+      <!-- Process timeline -->
+      <div class="reveal reveal-delay-1">
+        <div class="bg-cream rounded-2xl p-8">
+          <h3 class="text-navy font-semibold text-base mb-8 text-center">How We Work</h3>
+          <div class="flex flex-col items-center">
+            <div class="flex items-center gap-4 w-full mb-0">
+              <div class="w-10 h-10 rounded-full border-2 border-copper flex items-center justify-center flex-shrink-0">
+                <span class="text-copper font-bold text-sm">1</span>
+              </div>
+              <div>
+                <p class="text-navy font-semibold text-sm">Readiness Assessment</p>
+                <p class="text-navy/50 text-xs">Technology audit, digital maturity evaluation</p>
+              </div>
+            </div>
+            <div class="process-line my-2"></div>
+            <div class="flex items-center gap-4 w-full">
+              <div class="w-10 h-10 rounded-full border-2 border-copper flex items-center justify-center flex-shrink-0">
+                <span class="text-copper font-bold text-sm">2</span>
+              </div>
+              <div>
+                <p class="text-navy font-semibold text-sm">Roadmap Design</p>
+                <p class="text-navy/50 text-xs">Phased transformation plan with prioritized initiatives</p>
+              </div>
+            </div>
+            <div class="process-line my-2"></div>
+            <div class="flex items-center gap-4 w-full">
+              <div class="w-10 h-10 rounded-full border-2 border-copper flex items-center justify-center flex-shrink-0">
+                <span class="text-copper font-bold text-sm">3</span>
+              </div>
+              <div>
+                <p class="text-navy font-semibold text-sm">Deliver &amp; Implement</p>
+                <p class="text-navy/50 text-xs">Hands-on advisory, training, and integration support</p>
+              </div>
+            </div>
+            <div class="process-line my-2"></div>
+            <div class="flex items-center gap-4 w-full">
+              <div class="w-10 h-10 rounded-full bg-copper border-2 border-copper flex items-center justify-center flex-shrink-0">
+                <span class="text-white font-bold text-sm">4</span>
+              </div>
+              <div>
+                <p class="text-navy font-semibold text-sm">Evaluate &amp; Iterate</p>
+                <p class="text-navy/50 text-xs">Performance tracking, adoption metrics, iteration cycles</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ ACCORDION -->
+<section class="bg-cream py-20">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-14 reveal">
+      <h2 class="text-navy font-bold text-4xl mb-3">Frequently Asked Questions</h2>
+      <div class="w-12 h-1 bg-copper mx-auto rounded"></div>
+    </div>
+
+    <div class="space-y-3">
+
+      <div class="bg-white rounded-xl overflow-hidden shadow-sm reveal">
+        <button class="faq-trigger w-full text-left px-6 py-5 flex items-center justify-between gap-4 font-semibold text-navy text-sm transition-colors">
+          <span>What industries do you serve?</span>
+          <svg class="faq-icon w-5 h-5 flex-shrink-0 text-copper" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-answer">
+          <p class="px-6 pb-5 text-navy/70 text-sm">We serve all sectors, with primary focus on hospitality and tourism, education and training institutions, government and public sector bodies, technology and digital companies, healthcare organizations, and international NGOs and development agencies.</p>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-xl overflow-hidden shadow-sm reveal">
+        <button class="faq-trigger w-full text-left px-6 py-5 flex items-center justify-between gap-4 font-semibold text-navy text-sm transition-colors">
+          <span>Do you offer remote or hybrid training delivery?</span>
+          <svg class="faq-icon w-5 h-5 flex-shrink-0 text-copper" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-answer">
+          <p class="px-6 pb-5 text-navy/70 text-sm">Yes. We offer fully blended delivery options including in-person, fully remote, and hybrid modalities. Our instructional design team will recommend the optimal delivery format based on your audience profile, program objectives, and logistical context.</p>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-xl overflow-hidden shadow-sm reveal">
+        <button class="faq-trigger w-full text-left px-6 py-5 flex items-center justify-between gap-4 font-semibold text-navy text-sm transition-colors">
+          <span>In which languages do you deliver programs?</span>
+          <svg class="faq-icon w-5 h-5 flex-shrink-0 text-copper" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-answer">
+          <p class="px-6 pb-5 text-navy/70 text-sm">We deliver programs in multiple languages including French, English, and Arabic as primary languages. Additional languages are accessible through our network of vetted local expert partners. All programs can be translated and culturally adapted for any target market.</p>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-xl overflow-hidden shadow-sm reveal">
+        <button class="faq-trigger w-full text-left px-6 py-5 flex items-center justify-between gap-4 font-semibold text-navy text-sm transition-colors">
+          <span>How is training impact measured?</span>
+          <svg class="faq-icon w-5 h-5 flex-shrink-0 text-copper" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-answer">
+          <p class="px-6 pb-5 text-navy/70 text-sm">Impact is measured through a combination of pre- and post-engagement assessments, KPI frameworks agreed with the client at the outset, participant satisfaction surveys, and a formal post-engagement impact report delivered within 30 days of program completion.</p>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-xl overflow-hidden shadow-sm reveal">
+        <button class="faq-trigger w-full text-left px-6 py-5 flex items-center justify-between gap-4 font-semibold text-navy text-sm transition-colors">
+          <span>What is the typical engagement duration?</span>
+          <svg class="faq-icon w-5 h-5 flex-shrink-0 text-copper" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-answer">
+          <p class="px-6 pb-5 text-navy/70 text-sm">Engagement duration ranges widely depending on scope. We deliver short-term workshops of 1–5 days as well as multi-year institutional programs. Consulting retainers are typically structured on a monthly or quarterly basis. We will propose a phasing plan tailored to your objectives and budget.</p>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-xl overflow-hidden shadow-sm reveal">
+        <button class="faq-trigger w-full text-left px-6 py-5 flex items-center justify-between gap-4 font-semibold text-navy text-sm transition-colors">
+          <span>Do you work with government and public sector clients?</span>
+          <svg class="faq-icon w-5 h-5 flex-shrink-0 text-copper" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-answer">
+          <p class="px-6 pb-5 text-navy/70 text-sm">Yes. Public sector and institutional engagements are a core part of our practice, representing a significant share of our portfolio. We have experience navigating public procurement processes and are familiar with the compliance and reporting requirements typical of government-funded programs.</p>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-xl overflow-hidden shadow-sm reveal">
+        <button class="faq-trigger w-full text-left px-6 py-5 flex items-center justify-between gap-4 font-semibold text-navy text-sm transition-colors">
+          <span>Can you adapt existing programs for our organization?</span>
+          <svg class="faq-icon w-5 h-5 flex-shrink-0 text-copper" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-answer">
+          <p class="px-6 pb-5 text-navy/70 text-sm">Yes. All programs are custom-designed or adapted to the specific needs of the client organization after a thorough needs analysis phase. We can adapt existing internal programs or third-party content to align with your organizational culture, tone, and strategic objectives.</p>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-xl overflow-hidden shadow-sm reveal">
+        <button class="faq-trigger w-full text-left px-6 py-5 flex items-center justify-between gap-4 font-semibold text-navy text-sm transition-colors">
+          <span>How do we initiate a partnership?</span>
+          <svg class="faq-icon w-5 h-5 flex-shrink-0 text-copper" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-answer">
+          <p class="px-6 pb-5 text-navy/70 text-sm">Contact us via the form on our <a href="contact.html" class="text-copper hover:underline">Contact page</a> or send us a brief description of your needs. We will schedule an initial consultation call within two business days to learn more about your organization and explore how we can support your objectives — at no cost or obligation.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT CTA -->
+<section class="py-20" style="background:linear-gradient(135deg,#b47b3f 0%,#c8923d 50%,#d4a050 100%);">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <h2 class="text-cream font-bold text-3xl mb-4 reveal">Ready to elevate your organization?</h2>
+    <p class="text-cream/80 text-base mb-8 reveal reveal-delay-1">Contact us for a tailored needs assessment. Our team will respond within two business days.</p>
+    <a href="contact.html" class="inline-flex items-center justify-center bg-navy text-cream px-10 py-4 rounded font-semibold text-sm btn-primary min-h-[48px] reveal reveal-delay-2">Get in Touch</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-navy text-cream">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+      <div>
+        <a href="index.html" class="inline-block mb-4">
+          <svg viewBox="0 0 200 50" width="180" height="45" xmlns="http://www.w3.org/2000/svg">
             <circle cx="25" cy="25" r="22" fill="none" stroke="#b47b3f" stroke-width="2"/>
             <circle cx="25" cy="25" r="14" fill="none" stroke="#b47b3f" stroke-width="1" stroke-dasharray="3,2"/>
             <line x1="25" y1="3" x2="25" y2="47" stroke="#b47b3f" stroke-width="1.5"/>
@@ -51,447 +456,99 @@
             <text x="181" y="20" font-family="Inter,sans-serif" font-weight="600" font-size="9" fill="#b47b3f">LLC</text>
           </svg>
         </a>
-        <nav class="hidden md:flex items-center gap-8">
-          <a href="index.html" class="text-cream text-sm font-medium hover:text-copper transition-colors pb-1">Home</a>
-          <a href="about.html" class="text-cream text-sm font-medium hover:text-copper transition-colors pb-1">About</a>
-          <a href="services.html" class="text-copper text-sm font-medium pb-1 border-b-2 border-copper">Services</a>
-          <a href="contact.html" class="bg-copper text-white text-sm font-semibold px-5 py-2 rounded hover:bg-amber-600 transition-colors">Contact</a>
-        </nav>
-        <button id="hamburger" class="md:hidden text-cream focus:outline-none" aria-label="Toggle menu">
-          <svg id="icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-          </svg>
-          <svg id="icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-          </svg>
-        </button>
+        <p class="text-cream/60 text-sm leading-relaxed mb-4">International professional training consultancy and technology transfer firm operating worldwide.</p>
+        <p class="text-cream/50 text-xs">1209 Mountain Road PL NE, Ste N<br>Albuquerque, NM 87110, USA</p>
+      </div>
+      <div>
+        <h4 class="text-cream font-semibold text-sm uppercase tracking-wider mb-5" style="letter-spacing:.15em;">Navigation</h4>
+        <ul class="space-y-3">
+          <li><a href="index.html" class="text-cream/60 text-sm hover:text-copper transition-colors">Home</a></li>
+          <li><a href="about.html" class="text-cream/60 text-sm hover:text-copper transition-colors">About</a></li>
+          <li><a href="services.html" class="text-cream/60 text-sm hover:text-copper transition-colors">Services</a></li>
+          <li><a href="contact.html" class="text-cream/60 text-sm hover:text-copper transition-colors">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-cream font-semibold text-sm uppercase tracking-wider mb-5" style="letter-spacing:.15em;">Legal</h4>
+        <ul class="space-y-3">
+          <li><a href="terms.html" class="text-cream/60 text-sm hover:text-copper transition-colors">Terms of Service</a></li>
+          <li><a href="privacy.html" class="text-cream/60 text-sm hover:text-copper transition-colors">Privacy Policy</a></li>
+          <li><a href="cookies.html" class="text-cream/60 text-sm hover:text-copper transition-colors">Cookie Policy</a></li>
+          <li><a href="refund.html" class="text-cream/60 text-sm hover:text-copper transition-colors">Refund Policy</a></li>
+          <li><a href="legal.html" class="text-cream/60 text-sm hover:text-copper transition-colors">Legal Notice</a></li>
+          <li><a href="accessibility.html" class="text-cream/60 text-sm hover:text-copper transition-colors">Accessibility</a></li>
+          <li><a href="disclaimer.html" class="text-cream/60 text-sm hover:text-copper transition-colors">Disclaimer</a></li>
+          <li><a href="aml.html" class="text-cream/60 text-sm hover:text-copper transition-colors">AML Policy</a></li>
+          <li><a href="dpa.html" class="text-cream/60 text-sm hover:text-copper transition-colors">DPA</a></li>
+        </ul>
       </div>
     </div>
-    <div id="mobile-menu" class="hidden md:hidden bg-navy border-t border-white/10">
-      <div class="px-4 py-4 flex flex-col gap-4">
-        <a href="index.html" class="text-cream text-sm font-medium hover:text-copper transition-colors">Home</a>
-        <a href="about.html" class="text-cream text-sm font-medium hover:text-copper transition-colors">About</a>
-        <a href="services.html" class="text-copper text-sm font-semibold">Services</a>
-        <a href="contact.html" class="text-cream text-sm font-medium hover:text-copper transition-colors">Contact</a>
-      </div>
-    </div>
-  </header>
-
-  <!-- HERO -->
-  <section class="bg-navy py-20">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <p class="text-copper text-sm font-semibold uppercase tracking-widest mb-3">What We Deliver</p>
-      <h1 class="text-cream text-4xl sm:text-5xl font-extrabold mb-4">Our Services</h1>
-      <p class="text-cream/60 text-lg max-w-2xl mx-auto">Three integrated service pillars designed to transform organizational capability — from learning to operations to technology.</p>
-    </div>
-  </section>
-
-  <!-- PILLAR 1 -->
-  <section id="training" class="py-20 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-        <div>
-          <div class="w-16 h-16 bg-copper/10 rounded-2xl flex items-center justify-center mb-6">
-            <svg class="w-8 h-8 text-copper" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 14l9-5-9-5-9 5 9 5z"/>
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 14l6.16-3.422A12.083 12.083 0 0121 12c0 4.418-4.03 8-9 8s-9-3.582-9-8c0-.54.06-1.065.163-1.578L12 14z"/>
-            </svg>
-          </div>
-          <div class="inline-block bg-copper/10 text-copper text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full mb-4">Pillar 01</div>
-          <h2 class="text-navy text-3xl font-bold mb-4">Professional Training & Pedagogical Engineering</h2>
-          <p class="text-navy/70 leading-relaxed mb-6">
-            We design and deliver bespoke learning solutions for organizations that need to build, upgrade, or transform workforce competencies. Our pedagogical engineering approach ensures that every program is grounded in adult learning science, aligned with measurable performance objectives, and adapted to the specific professional context of our clients.
-          </p>
-          <p class="text-navy/70 leading-relaxed mb-8">
-            From initial needs analysis to post-training impact measurement, our team manages the full learning lifecycle — ensuring that investment in human capital translates into real, lasting capability gains.
-          </p>
-          <div class="bg-cream rounded-2xl p-6 mb-8">
-            <h4 class="text-navy font-semibold text-sm uppercase tracking-wide mb-1">Sector Focus</h4>
-            <p class="text-navy/60 text-sm">Corporate organizations, government agencies, NGOs, education institutions, international development programs</p>
-          </div>
-          <a href="contact.html" class="inline-flex items-center gap-2 bg-copper text-white font-semibold px-6 py-3 rounded-lg hover:bg-amber-600 transition-colors text-sm">
-            Request a Consultation
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-          </a>
-        </div>
-        <div>
-          <h3 class="text-navy font-bold text-lg mb-6 flex items-center gap-2">
-            <span class="w-1 h-6 bg-copper rounded-full inline-block"></span>
-            Key Deliverables
-          </h3>
-          <ul class="space-y-4">
-            <li class="flex items-start gap-3 p-4 border border-navy/8 rounded-xl hover:border-copper/30 hover:bg-cream/30 transition-colors">
-              <svg class="w-5 h-5 text-copper mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-              <div>
-                <p class="text-navy font-semibold text-sm">Needs Analysis & Competency Mapping</p>
-                <p class="text-navy/55 text-xs mt-0.5">Structured diagnostic processes to identify skill gaps and define target competency profiles aligned with organizational strategy.</p>
-              </div>
-            </li>
-            <li class="flex items-start gap-3 p-4 border border-navy/8 rounded-xl hover:border-copper/30 hover:bg-cream/30 transition-colors">
-              <svg class="w-5 h-5 text-copper mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-              <div>
-                <p class="text-navy font-semibold text-sm">Custom Curriculum Design & Development</p>
-                <p class="text-navy/55 text-xs mt-0.5">Purpose-built training materials, learning guides, facilitator handbooks, and multimedia content developed to specification.</p>
-              </div>
-            </li>
-            <li class="flex items-start gap-3 p-4 border border-navy/8 rounded-xl hover:border-copper/30 hover:bg-cream/30 transition-colors">
-              <svg class="w-5 h-5 text-copper mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-              <div>
-                <p class="text-navy font-semibold text-sm">Blended Learning (In-person, Remote, Hybrid)</p>
-                <p class="text-navy/55 text-xs mt-0.5">Flexible delivery modalities combining live facilitation, e-learning, and self-paced modules suited to distributed teams.</p>
-              </div>
-            </li>
-            <li class="flex items-start gap-3 p-4 border border-navy/8 rounded-xl hover:border-copper/30 hover:bg-cream/30 transition-colors">
-              <svg class="w-5 h-5 text-copper mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-              <div>
-                <p class="text-navy font-semibold text-sm">Train-the-Trainer Programs</p>
-                <p class="text-navy/55 text-xs mt-0.5">Building internal facilitation capacity so your organization can sustain and scale training without ongoing external dependency.</p>
-              </div>
-            </li>
-            <li class="flex items-start gap-3 p-4 border border-navy/8 rounded-xl hover:border-copper/30 hover:bg-cream/30 transition-colors">
-              <svg class="w-5 h-5 text-copper mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-              <div>
-                <p class="text-navy font-semibold text-sm">Post-Training Evaluation & Impact Measurement</p>
-                <p class="text-navy/55 text-xs mt-0.5">Kirkpatrick-aligned evaluation frameworks, KPI tracking, and return-on-investment reporting for training programs.</p>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PILLAR 2 -->
-  <section id="hospitality" class="py-20 bg-cream">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-        <div class="order-2 lg:order-1">
-          <h3 class="text-navy font-bold text-lg mb-6 flex items-center gap-2">
-            <span class="w-1 h-6 bg-copper rounded-full inline-block"></span>
-            Key Deliverables
-          </h3>
-          <ul class="space-y-4">
-            <li class="flex items-start gap-3 p-4 bg-white border border-navy/8 rounded-xl hover:border-copper/30 transition-colors">
-              <svg class="w-5 h-5 text-copper mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-              <div>
-                <p class="text-navy font-semibold text-sm">Operational Audits & Gap Analysis</p>
-                <p class="text-navy/55 text-xs mt-0.5">Systematic on-site or remote evaluation of current operational standards against industry benchmarks and brand requirements.</p>
-              </div>
-            </li>
-            <li class="flex items-start gap-3 p-4 bg-white border border-navy/8 rounded-xl hover:border-copper/30 transition-colors">
-              <svg class="w-5 h-5 text-copper mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-              <div>
-                <p class="text-navy font-semibold text-sm">Service Standards & SOPs Development</p>
-                <p class="text-navy/55 text-xs mt-0.5">Comprehensive Standard Operating Procedures, service scripts, and performance standards tailored to your brand identity.</p>
-              </div>
-            </li>
-            <li class="flex items-start gap-3 p-4 bg-white border border-navy/8 rounded-xl hover:border-copper/30 transition-colors">
-              <svg class="w-5 h-5 text-copper mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-              <div>
-                <p class="text-navy font-semibold text-sm">Staff Training & Upskilling Programs</p>
-                <p class="text-navy/55 text-xs mt-0.5">Role-specific training for front-of-house, back-of-house, management, and supervisory levels across F&B and hospitality operations.</p>
-              </div>
-            </li>
-            <li class="flex items-start gap-3 p-4 bg-white border border-navy/8 rounded-xl hover:border-copper/30 transition-colors">
-              <svg class="w-5 h-5 text-copper mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-              <div>
-                <p class="text-navy font-semibold text-sm">Quality Management Systems</p>
-                <p class="text-navy/55 text-xs mt-0.5">Implementation of HACCP, ISO 22000-aligned, and brand-specific quality frameworks with audit tools and corrective action protocols.</p>
-              </div>
-            </li>
-            <li class="flex items-start gap-3 p-4 bg-white border border-navy/8 rounded-xl hover:border-copper/30 transition-colors">
-              <svg class="w-5 h-5 text-copper mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-              <div>
-                <p class="text-navy font-semibold text-sm">Brand Standards Alignment</p>
-                <p class="text-navy/55 text-xs mt-0.5">Ensuring operational practices at every level are consistent with brand promise, guest experience expectations, and market positioning.</p>
-              </div>
-            </li>
-          </ul>
-        </div>
-        <div class="order-1 lg:order-2">
-          <div class="w-16 h-16 bg-copper/10 rounded-2xl flex items-center justify-center mb-6">
-            <svg class="w-8 h-8 text-copper" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-            </svg>
-          </div>
-          <div class="inline-block bg-copper/10 text-copper text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full mb-4">Pillar 02</div>
-          <h2 class="text-navy text-3xl font-bold mb-4">Hospitality & F&B Consulting</h2>
-          <p class="text-navy/70 leading-relaxed mb-6">
-            Our hospitality and food & beverage consulting practice partners with establishments seeking to elevate their service culture, optimize operational efficiency, and align their teams with world-class standards. We work with hotels, restaurants, catering companies, and event venues across multiple markets.
-          </p>
-          <p class="text-navy/70 leading-relaxed mb-8">
-            The firm's consultants bring direct, hands-on experience in operational management and service excellence, enabling us to provide practical, implementable recommendations rather than theoretical frameworks alone.
-          </p>
-          <div class="bg-navy rounded-2xl p-6 mb-8">
-            <h4 class="text-cream font-semibold text-sm uppercase tracking-wide mb-1">Sector Focus</h4>
-            <p class="text-cream/60 text-sm">Hotels & resorts, restaurants & brasseries, catering & banqueting, event venues, food & beverage groups</p>
-          </div>
-          <a href="contact.html" class="inline-flex items-center gap-2 bg-copper text-white font-semibold px-6 py-3 rounded-lg hover:bg-amber-600 transition-colors text-sm">
-            Request a Consultation
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PILLAR 3 -->
-  <section id="technology" class="py-20 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-        <div>
-          <div class="w-16 h-16 bg-copper/10 rounded-2xl flex items-center justify-center mb-6">
-            <svg class="w-8 h-8 text-copper" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/>
-            </svg>
-          </div>
-          <div class="inline-block bg-copper/10 text-copper text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full mb-4">Pillar 03</div>
-          <h2 class="text-navy text-3xl font-bold mb-4">Technology Transfer & AI-Augmented Solutions</h2>
-          <p class="text-navy/70 leading-relaxed mb-6">
-            In an era of accelerating digital transformation, Artevotrade LLC supports organizations in navigating the adoption of new technologies — with a particular focus on artificial intelligence tools, knowledge management systems, and sustainable digital workflows.
-          </p>
-          <p class="text-navy/70 leading-relaxed mb-8">
-            Our technology transfer methodology prioritizes human capital: we ensure that technology adoption is accompanied by genuine understanding, internalized processes, and the organizational capacity to sustain and evolve the investment over time.
-          </p>
-          <div class="bg-cream rounded-2xl p-6 mb-8">
-            <h4 class="text-navy font-semibold text-sm uppercase tracking-wide mb-1">Sector Focus</h4>
-            <p class="text-navy/60 text-sm">Manufacturing, professional services, public sector, healthcare administration, education technology, NGOs</p>
-          </div>
-          <a href="contact.html" class="inline-flex items-center gap-2 bg-copper text-white font-semibold px-6 py-3 rounded-lg hover:bg-amber-600 transition-colors text-sm">
-            Request a Consultation
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-          </a>
-        </div>
-        <div>
-          <h3 class="text-navy font-bold text-lg mb-6 flex items-center gap-2">
-            <span class="w-1 h-6 bg-copper rounded-full inline-block"></span>
-            Key Deliverables
-          </h3>
-          <ul class="space-y-4">
-            <li class="flex items-start gap-3 p-4 border border-navy/8 rounded-xl hover:border-copper/30 hover:bg-cream/30 transition-colors">
-              <svg class="w-5 h-5 text-copper mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-              <div>
-                <p class="text-navy font-semibold text-sm">Technology Readiness Assessment</p>
-                <p class="text-navy/55 text-xs mt-0.5">Structured evaluation of your organization's current digital maturity, infrastructure, and human capability baseline.</p>
-              </div>
-            </li>
-            <li class="flex items-start gap-3 p-4 border border-navy/8 rounded-xl hover:border-copper/30 hover:bg-cream/30 transition-colors">
-              <svg class="w-5 h-5 text-copper mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-              <div>
-                <p class="text-navy font-semibold text-sm">Digital Transformation Roadmaps</p>
-                <p class="text-navy/55 text-xs mt-0.5">Phased, prioritized implementation plans that align technology investments with business objectives and resource realities.</p>
-              </div>
-            </li>
-            <li class="flex items-start gap-3 p-4 border border-navy/8 rounded-xl hover:border-copper/30 hover:bg-cream/30 transition-colors">
-              <svg class="w-5 h-5 text-copper mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-              <div>
-                <p class="text-navy font-semibold text-sm">AI Tool Integration & Workflow Optimization</p>
-                <p class="text-navy/55 text-xs mt-0.5">Identifying, piloting, and embedding AI-augmented tools within existing operational workflows for measurable efficiency gains.</p>
-              </div>
-            </li>
-            <li class="flex items-start gap-3 p-4 border border-navy/8 rounded-xl hover:border-copper/30 hover:bg-cream/30 transition-colors">
-              <svg class="w-5 h-5 text-copper mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-              <div>
-                <p class="text-navy font-semibold text-sm">Change Management & Adoption Support</p>
-                <p class="text-navy/55 text-xs mt-0.5">Structured change management programs that address human resistance, communication strategy, and stakeholder engagement.</p>
-              </div>
-            </li>
-            <li class="flex items-start gap-3 p-4 border border-navy/8 rounded-xl hover:border-copper/30 hover:bg-cream/30 transition-colors">
-              <svg class="w-5 h-5 text-copper mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-              <div>
-                <p class="text-navy font-semibold text-sm">Knowledge Management Systems</p>
-                <p class="text-navy/55 text-xs mt-0.5">Designing and implementing systems for capturing, organizing, and sharing organizational knowledge to prevent institutional memory loss.</p>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section class="py-20 bg-cream reveal">
-    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-12">
-        <p class="text-copper text-sm font-semibold uppercase tracking-widest mb-3">Questions</p>
-        <h2 class="text-navy text-3xl font-bold">Frequently Asked Questions</h2>
-      </div>
-      <div class="space-y-3" id="faq-list">
-        <div class="bg-white rounded-xl border border-navy/10 overflow-hidden">
-          <button class="faq-btn w-full flex items-center justify-between px-6 py-5 text-left" aria-expanded="false">
-            <span class="text-navy font-semibold text-sm">Do you work with clients outside the United States?</span>
-            <svg class="w-5 h-5 text-copper flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-          </button>
-          <div class="accordion-content px-6 pb-5">
-            <p class="text-navy/65 text-sm leading-relaxed">Yes. Artevotrade LLC serves clients across Europe, the Middle East, North Africa, Sub-Saharan Africa, and the Americas. Our engagements are delivered on-site, remotely, or in hybrid formats, adapting to the geographic and logistical needs of each client.</p>
-          </div>
-        </div>
-        <div class="bg-white rounded-xl border border-navy/10 overflow-hidden">
-          <button class="faq-btn w-full flex items-center justify-between px-6 py-5 text-left" aria-expanded="false">
-            <span class="text-navy font-semibold text-sm">Can you combine multiple service pillars in a single engagement?</span>
-            <svg class="w-5 h-5 text-copper flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-          </button>
-          <div class="accordion-content px-6 pb-5">
-            <p class="text-navy/65 text-sm leading-relaxed">Absolutely. Many of our most impactful engagements combine training with operational consulting or technology integration. We design bespoke multi-pillar programs that address interconnected organizational challenges in a coordinated way.</p>
-          </div>
-        </div>
-        <div class="bg-white rounded-xl border border-navy/10 overflow-hidden">
-          <button class="faq-btn w-full flex items-center justify-between px-6 py-5 text-left" aria-expanded="false">
-            <span class="text-navy font-semibold text-sm">What languages do you work in?</span>
-            <svg class="w-5 h-5 text-copper flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-          </button>
-          <div class="accordion-content px-6 pb-5">
-            <p class="text-navy/65 text-sm leading-relaxed">Our primary working languages are English and French. We can accommodate multilingual engagements for clients in North Africa, West Africa, and francophone Europe. Interpretation and translation support is available for other languages on request.</p>
-          </div>
-        </div>
-        <div class="bg-white rounded-xl border border-navy/10 overflow-hidden">
-          <button class="faq-btn w-full flex items-center justify-between px-6 py-5 text-left" aria-expanded="false">
-            <span class="text-navy font-semibold text-sm">How long does a typical engagement last?</span>
-            <svg class="w-5 h-5 text-copper flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-          </button>
-          <div class="accordion-content px-6 pb-5">
-            <p class="text-navy/65 text-sm leading-relaxed">Engagement length varies by scope. Short-form training workshops may last 2–5 days. Full curriculum design and delivery projects typically span 4–12 weeks. Operational consulting and technology transfer engagements may run 3–6 months or longer, depending on complexity.</p>
-          </div>
-        </div>
-        <div class="bg-white rounded-xl border border-navy/10 overflow-hidden">
-          <button class="faq-btn w-full flex items-center justify-between px-6 py-5 text-left" aria-expanded="false">
-            <span class="text-navy font-semibold text-sm">How do we get started?</span>
-            <svg class="w-5 h-5 text-copper flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-          </button>
-          <div class="accordion-content px-6 pb-5">
-            <p class="text-navy/65 text-sm leading-relaxed">The first step is to submit a contact inquiry via our contact form, outlining your organization's needs and context. Our team will follow up within 2 business days to arrange an initial discovery call, after which we prepare a tailored proposal at no obligation.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section class="bg-copper py-16">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h2 class="text-white text-3xl font-bold mb-4">Ready to elevate your organization's capabilities?</h2>
-      <p class="text-white/80 text-lg mb-8">Contact our team to discuss your specific needs and how we can design a tailored solution.</p>
-      <a href="contact.html" class="inline-block bg-navy text-cream font-semibold px-10 py-4 rounded-lg hover:bg-navy/80 transition-colors shadow-lg text-sm">Get in Touch</a>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="bg-navy text-cream">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-        <div>
-          <a href="index.html" class="inline-block mb-3">
-            <svg viewBox="0 0 200 50" width="180" height="45" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="25" cy="25" r="22" fill="none" stroke="#b47b3f" stroke-width="2"/>
-              <circle cx="25" cy="25" r="14" fill="none" stroke="#b47b3f" stroke-width="1" stroke-dasharray="3,2"/>
-              <line x1="25" y1="3" x2="25" y2="47" stroke="#b47b3f" stroke-width="1.5"/>
-              <line x1="3" y1="25" x2="47" y2="25" stroke="#b47b3f" stroke-width="1.5"/>
-              <circle cx="25" cy="25" r="3" fill="#b47b3f"/>
-              <polygon points="25,5 22,12 28,12" fill="#b47b3f"/>
-              <text x="56" y="32" font-family="Inter,sans-serif" font-weight="700" font-size="17" fill="#f4ecdd" letter-spacing="1">ARTEVOTRADE</text>
-              <text x="181" y="20" font-family="Inter,sans-serif" font-weight="600" font-size="9" fill="#b47b3f">LLC</text>
-            </svg>
-          </a>
-          <p class="text-cream/60 text-sm leading-relaxed mb-4">International professional training, hospitality consulting, and technology transfer firm operating worldwide.</p>
-          <p class="text-cream/50 text-xs">1209 Mountain Road PL NE, Ste N<br/>Albuquerque, NM 87110, USA</p>
-        </div>
-        <div>
-          <h4 class="text-cream font-semibold text-sm uppercase tracking-wider mb-5">Navigation</h4>
-          <ul class="space-y-3">
-            <li><a href="index.html" class="text-cream/60 text-sm hover:text-copper transition-colors">Home</a></li>
-            <li><a href="about.html" class="text-cream/60 text-sm hover:text-copper transition-colors">About</a></li>
-            <li><a href="services.html" class="text-cream/60 text-sm hover:text-copper transition-colors">Services</a></li>
-            <li><a href="contact.html" class="text-cream/60 text-sm hover:text-copper transition-colors">Contact</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4 class="text-cream font-semibold text-sm uppercase tracking-wider mb-5">Legal</h4>
-          <ul class="space-y-3">
-            <li><a href="terms.html" class="text-cream/60 text-sm hover:text-copper transition-colors">Terms of Service</a></li>
-            <li><a href="privacy.html" class="text-cream/60 text-sm hover:text-copper transition-colors">Privacy Policy</a></li>
-            <li><a href="cookies.html" class="text-cream/60 text-sm hover:text-copper transition-colors">Cookie Policy</a></li>
-            <li><a href="refund.html" class="text-cream/60 text-sm hover:text-copper transition-colors">Refund Policy</a></li>
-            <li><a href="legal.html" class="text-cream/60 text-sm hover:text-copper transition-colors">Legal Notice</a></li>
-            <li><a href="accessibility.html" class="text-cream/60 text-sm hover:text-copper transition-colors">Accessibility</a></li>
-            <li><a href="disclaimer.html" class="text-cream/60 text-sm hover:text-copper transition-colors">Disclaimer</a></li>
-            <li><a href="aml.html" class="text-cream/60 text-sm hover:text-copper transition-colors">AML Policy</a></li>
-            <li><a href="dpa.html" class="text-cream/60 text-sm hover:text-copper transition-colors">DPA</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="border-t border-white/10 mt-12 pt-8 text-center">
-        <p class="text-cream/40 text-xs">© 2025-2026 Artevotrade LLC. All rights reserved.</p>
-      </div>
-    </div>
-  </footer>
-
-  <!-- COOKIE BANNER -->
-  <div id="cookie-banner" class="fixed bottom-0 left-0 right-0 z-50 bg-navy border-t border-copper/30 shadow-2xl px-4 py-4 hidden">
-    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-      <p class="text-cream/80 text-sm text-center sm:text-left">
-        We use cookies to improve your experience. By continuing, you accept our
-        <a href="cookies.html" class="text-copper underline hover:text-amber-400 transition-colors">Cookie Policy</a>.
-      </p>
-      <div class="flex items-center gap-3 flex-shrink-0">
-        <a href="cookies.html" class="text-cream/60 text-sm hover:text-cream transition-colors">Learn More</a>
-        <button id="accept-cookies" class="bg-copper text-white text-sm font-semibold px-6 py-2 rounded hover:bg-amber-600 transition-colors">Accept</button>
-      </div>
+    <div class="border-t border-white/10 mt-12 pt-8 text-center">
+      <p class="text-cream/40 text-xs">© 2025-2026 Artevotrade LLC. All rights reserved.</p>
     </div>
   </div>
+</footer>
 
-  <!-- BACK TO TOP -->
-  <button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" class="fixed bottom-24 right-6 z-40 bg-copper text-white w-11 h-11 rounded-full shadow-lg items-center justify-center hidden hover:bg-amber-700 transition-all duration-300" aria-label="Back to top">
-    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"/></svg>
-  </button>
+<!-- COOKIE BANNER -->
+<div id="cookie-banner" class="fixed bottom-0 left-0 right-0 z-50 bg-navy border-t border-copper/30 shadow-2xl px-4 py-4 hidden">
+  <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+    <p class="text-cream/80 text-sm text-center sm:text-left">
+      We use cookies to improve your experience. By continuing, you accept our
+      <a href="cookies.html" class="text-copper underline hover:text-amber-400 transition-colors">Cookie Policy</a>.
+    </p>
+    <div class="flex items-center gap-3 flex-shrink-0">
+      <a href="cookies.html" class="text-cream/60 text-sm hover:text-cream transition-colors">Learn More</a>
+      <button id="accept-cookies" class="bg-copper text-white text-sm font-semibold px-6 py-2 rounded hover:bg-amber-600 transition-colors">Accept</button>
+    </div>
+  </div>
+</div>
 
-  <script>
-    const hamburger = document.getElementById('hamburger');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const iconOpen = document.getElementById('icon-open');
-    const iconClose = document.getElementById('icon-close');
-    hamburger.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-      iconOpen.classList.toggle('hidden');
-      iconClose.classList.toggle('hidden');
-    });
-    const cookieBanner = document.getElementById('cookie-banner');
-    const acceptBtn = document.getElementById('accept-cookies');
-    if (!localStorage.getItem('artevotrade_cookies_accepted')) {
-      cookieBanner.classList.remove('hidden');
-    }
-    acceptBtn.addEventListener('click', () => {
-      localStorage.setItem('artevotrade_cookies_accepted', 'true');
-      cookieBanner.classList.add('hidden');
-    });
-    // Back to top
-    const btt = document.getElementById('back-to-top');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 400) btt.classList.replace('hidden','flex');
-      else btt.classList.replace('flex','hidden');
-    });
-    // Scroll reveal
-    const revealEls = document.querySelectorAll('.reveal');
-    const revealObs = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('revealed'); revealObs.unobserve(e.target); }});
-    }, {threshold: 0.1});
-    revealEls.forEach(el => revealObs.observe(el));
-    // FAQ accordion
-    document.querySelectorAll('.faq-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const content = btn.nextElementSibling;
-        const icon = btn.querySelector('svg');
-        const isOpen = content.classList.contains('open');
-        document.querySelectorAll('.accordion-content').forEach(c => c.classList.remove('open'));
-        document.querySelectorAll('.faq-btn svg').forEach(s => s.style.transform = '');
-        if (!isOpen) {
-          content.classList.add('open');
-          icon.style.transform = 'rotate(180deg)';
-          btn.setAttribute('aria-expanded', 'true');
-        } else {
-          btn.setAttribute('aria-expanded', 'false');
-        }
+<!-- BACK TO TOP -->
+<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" class="fixed bottom-24 right-6 z-40 bg-copper text-white w-11 h-11 rounded-full shadow-lg items-center justify-center hidden hover:bg-amber-700 transition-all duration-300" aria-label="Back to top">
+  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"/></svg>
+</button>
+
+<script>
+  const menuBtn = document.getElementById('menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+
+  if (!localStorage.getItem('artevotrade_cookies_accepted')) {
+    document.getElementById('cookie-banner').classList.remove('hidden');
+  }
+  document.getElementById('accept-cookies').addEventListener('click', () => {
+    localStorage.setItem('artevotrade_cookies_accepted','true');
+    document.getElementById('cookie-banner').classList.add('hidden');
+  });
+
+  const btt = document.getElementById('back-to-top');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 400) btt.classList.replace('hidden','flex');
+    else btt.classList.replace('flex','hidden');
+  });
+
+  const revealObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('revealed'); revealObs.unobserve(e.target); }});
+  }, {threshold: 0.1});
+  document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-trigger').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const answer = btn.nextElementSibling;
+      const isOpen = btn.classList.contains('faq-open');
+      document.querySelectorAll('.faq-trigger').forEach(b => {
+        b.classList.remove('faq-open','text-copper');
+        b.querySelector('.faq-icon').style.transform = 'rotate(0deg)';
+        b.nextElementSibling.style.maxHeight = '0';
       });
+      if(!isOpen){
+        btn.classList.add('faq-open','text-copper');
+        btn.querySelector('.faq-icon').style.transform = 'rotate(180deg)';
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+      }
     });
-  </script>
+  });
+</script>
 </body>
 </html>
