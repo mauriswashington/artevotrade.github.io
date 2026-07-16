@@ -1,46 +1,361 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="About Artevotrade LLC — International professional training, hospitality consulting, and technology transfer firm headquartered in Albuquerque, NM." />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta name="description" content="About Artevotrade LLC — International professional training, hospitality consulting, and technology transfer firm headquartered in Albuquerque, NM.">
   <title>About — Artevotrade LLC</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            navy: '#1a1f3a',
-            copper: '#b47b3f',
-            cream: '#f4ecdd',
-          },
-          fontFamily: {
-            sans: ['Inter', 'sans-serif'],
-          }
-        }
-      }
+      theme: { extend: { colors:{navy:'#1a1f3a',copper:'#b47b3f',cream:'#f4ecdd'}, fontFamily:{sans:['Inter','sans-serif'],display:['Poppins','sans-serif']} } }
     }
   </script>
   <style>
-    .card-hover { transition: transform 0.3s ease, box-shadow 0.3s ease; }
-    .card-hover:hover { transform: translateY(-4px); box-shadow: 0 16px 32px rgba(26,31,58,0.12); }
-    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
-    .revealed { opacity: 1; transform: none; }
+    h1,h2,h3,h4 { font-family:'Poppins',sans-serif; }
+    body { line-height:1.75; }
+    .reveal { opacity:0; transform:translateY(24px); transition:opacity .6s ease,transform .6s ease; }
+    .revealed { opacity:1; transform:none; }
+    .reveal-delay-1 { transition-delay:.1s; }
+    .reveal-delay-2 { transition-delay:.2s; }
+    @media(prefers-reduced-motion:reduce){.reveal,.revealed{opacity:1;transform:none;transition:none;}*{animation-duration:.01ms!important;transition-duration:.01ms!important;}}
+    .btn-primary { transition:transform .2s ease,box-shadow .2s ease; }
+    .btn-primary:hover { transform:scale(1.02); box-shadow:0 8px 24px rgba(180,123,63,.35); }
+    @keyframes lineGrow { from{width:0} to{width:100%} }
+    .copper-line-animate { animation:lineGrow 1.2s ease forwards; }
+    @keyframes dotPulse { 0%,100%{transform:scale(1);opacity:1;} 50%{transform:scale(1.4);opacity:.5;} }
+    .dot-pulse { animation:dotPulse 2s ease-in-out infinite; }
+    .dot-pulse-2 { animation:dotPulse 2s ease-in-out .4s infinite; }
+    .dot-pulse-3 { animation:dotPulse 2s ease-in-out .8s infinite; }
+    .dot-pulse-4 { animation:dotPulse 2s ease-in-out 1.2s infinite; }
+    .dot-pulse-5 { animation:dotPulse 2s ease-in-out 1.6s infinite; }
+    .timeline-entry { border-left: 2px solid #b47b3f; padding-left: 2rem; position:relative; margin-bottom:2.5rem; }
+    .timeline-entry::before { content:''; position:absolute; left:-7px; top:4px; width:12px; height:12px; border-radius:50%; background:#b47b3f; }
   </style>
 </head>
 <body class="font-sans bg-white text-navy">
 
-  <!-- HEADER -->
-  <header class="bg-navy sticky top-0 z-50 shadow-lg">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-16">
-        <a href="index.html" class="flex items-center gap-2 flex-shrink-0">
-          <svg viewBox="0 0 200 50" width="160" height="40" xmlns="http://www.w3.org/2000/svg">
+<!-- HEADER -->
+<header class="bg-navy sticky top-0 z-50 shadow-lg">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <a href="index.html" class="flex-shrink-0">
+        <svg viewBox="0 0 200 50" width="160" height="40" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="25" cy="25" r="22" fill="none" stroke="#b47b3f" stroke-width="2"/>
+          <circle cx="25" cy="25" r="14" fill="none" stroke="#b47b3f" stroke-width="1" stroke-dasharray="3,2"/>
+          <line x1="25" y1="3" x2="25" y2="47" stroke="#b47b3f" stroke-width="1.5"/>
+          <line x1="3" y1="25" x2="47" y2="25" stroke="#b47b3f" stroke-width="1.5"/>
+          <circle cx="25" cy="25" r="3" fill="#b47b3f"/>
+          <polygon points="25,5 22,12 28,12" fill="#b47b3f"/>
+          <text x="56" y="32" font-family="Inter,sans-serif" font-weight="700" font-size="17" fill="#f4ecdd" letter-spacing="1">ARTEVOTRADE</text>
+          <text x="181" y="20" font-family="Inter,sans-serif" font-weight="600" font-size="9" fill="#b47b3f">LLC</text>
+        </svg>
+      </a>
+      <nav class="hidden md:flex items-center gap-8">
+        <a href="index.html" class="text-cream/80 hover:text-copper text-sm font-medium transition-colors duration-200">Home</a>
+        <a href="about.html" class="text-copper text-sm font-medium border-b border-copper pb-0.5">About</a>
+        <a href="services.html" class="text-cream/80 hover:text-copper text-sm font-medium transition-colors duration-200">Services</a>
+        <a href="contact.html" class="bg-copper text-white px-5 py-2 rounded text-sm font-semibold btn-primary min-h-[44px] flex items-center">Contact Us</a>
+      </nav>
+      <button id="menu-btn" class="md:hidden text-cream focus:outline-none min-w-[44px] min-h-[44px] flex items-center justify-center" aria-label="Toggle menu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden pb-4 border-t border-cream/10 mt-2">
+      <nav class="flex flex-col gap-3 pt-4">
+        <a href="index.html" class="text-cream/80 hover:text-copper text-sm min-h-[44px] flex items-center transition-colors">Home</a>
+        <a href="about.html" class="text-copper font-medium text-sm min-h-[44px] flex items-center">About</a>
+        <a href="services.html" class="text-cream/80 hover:text-copper text-sm min-h-[44px] flex items-center transition-colors">Services</a>
+        <a href="contact.html" class="text-copper font-medium text-sm min-h-[44px] flex items-center">Contact Us</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="bg-navy py-24 relative overflow-hidden">
+  <div class="absolute inset-0 pointer-events-none">
+    <div class="absolute -top-20 -right-20 w-96 h-96 rounded-full" style="background:radial-gradient(circle,rgba(180,123,63,.1) 0%,transparent 70%)"></div>
+    <div class="absolute bottom-0 left-0 w-80 h-80 rounded-full" style="background:radial-gradient(circle,rgba(180,123,63,.06) 0%,transparent 70%)"></div>
+  </div>
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <p class="text-copper text-xs font-semibold uppercase mb-4" style="letter-spacing:.15em;">About the Firm</p>
+    <h1 class="text-cream font-bold text-5xl sm:text-6xl mb-4">About Artevotrade LLC</h1>
+    <div class="copper-line-animate h-0.5 bg-copper mt-4 mb-6 max-w-xs" style="width:0"></div>
+    <p class="text-copper font-semibold text-xl" style="font-family:'Poppins',sans-serif;">International reach. Local expertise.</p>
+  </div>
+</section>
+
+<!-- WHO WE ARE -->
+<section class="bg-white py-20">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div class="reveal">
+        <p class="text-copper text-xs font-semibold uppercase mb-4" style="letter-spacing:.15em;">Who We Are</p>
+        <h2 class="text-navy font-bold text-4xl mb-6">A Global Consultancy Built on Expertise</h2>
+        <p class="text-navy/70 text-base mb-5">Artevotrade LLC is an international professional training consultancy and technology transfer firm headquartered in Albuquerque, New Mexico, USA. Since our founding, we have operated across four continents, partnering with organizations ranging from multinational corporations to government agencies, hospitality groups, educational institutions, and international development organizations.</p>
+        <p class="text-navy/70 text-base mb-8">Our multilingual team of specialists brings deep sector knowledge and genuine cultural fluency to every engagement. We design and deliver training programs, operational consulting solutions, and technology transfer initiatives in French, English, Arabic, and other languages — always adapted to the local context.</p>
+        <div class="flex flex-wrap gap-3 mt-6">
+          <span class="bg-cream text-navy text-xs font-semibold px-4 py-2 rounded-full" style="letter-spacing:.05em;">Founded in USA</span>
+          <span class="bg-cream text-navy text-xs font-semibold px-4 py-2 rounded-full" style="letter-spacing:.05em;">Operations Worldwide</span>
+          <span class="bg-cream text-navy text-xs font-semibold px-4 py-2 rounded-full" style="letter-spacing:.05em;">Multilingual Delivery</span>
+        </div>
+      </div>
+      <div class="flex items-center justify-center reveal reveal-delay-1">
+        <!-- Animated world map with nodes -->
+        <svg viewBox="0 0 400 280" width="400" height="280" xmlns="http://www.w3.org/2000/svg" class="max-w-full">
+          <!-- Simplified world outlines -->
+          <!-- Americas -->
+          <path d="M 55 60 Q 60 50 70 55 Q 80 48 85 60 Q 90 70 85 90 Q 80 110 75 130 Q 70 150 65 170 Q 55 200 50 230 Q 45 250 55 260 Q 65 265 70 255 Q 80 240 85 220 Q 90 200 95 180 Q 100 160 110 140 Q 115 120 110 100 Q 105 80 100 70 Q 95 60 85 55 Q 75 48 65 52 Z" fill="none" stroke="#b47b3f" stroke-width="1.2" opacity=".35"/>
+          <!-- Europe/Africa -->
+          <path d="M 185 50 Q 190 45 200 48 Q 210 52 215 60 Q 218 70 215 80 Q 210 90 205 85 Q 198 80 195 90 Q 192 100 195 115 Q 198 130 200 145 Q 202 165 198 185 Q 194 205 190 220 Q 186 235 188 245 Q 190 250 195 252 Q 200 250 202 242 Q 205 228 205 210 Q 205 190 208 172 Q 212 155 215 140 Q 220 120 220 105 Q 220 90 222 78 Q 225 62 220 55 Q 212 45 200 44 Z" fill="none" stroke="#b47b3f" stroke-width="1.2" opacity=".35"/>
+          <!-- Middle East -->
+          <path d="M 235 70 Q 240 65 250 68 Q 262 72 265 82 Q 268 92 262 100 Q 255 108 248 105 Q 240 100 237 90 Q 234 80 235 70 Z" fill="none" stroke="#b47b3f" stroke-width="1.2" opacity=".35"/>
+          <!-- Asia outline simplified -->
+          <path d="M 270 50 Q 290 42 320 48 Q 345 54 360 65 Q 372 75 368 90 Q 362 108 345 112 Q 325 115 308 108 Q 290 100 278 90 Q 265 78 268 65 Q 269 56 270 50 Z" fill="none" stroke="#b47b3f" stroke-width="1" opacity=".2"/>
+
+          <!-- Connection lines (dashed copper) -->
+          <line x1="75" y1="145" x2="196" y2="195" stroke="#b47b3f" stroke-width=".8" stroke-dasharray="4,3" opacity=".4"/>
+          <line x1="196" y1="155" x2="252" y2="88" stroke="#b47b3f" stroke-width=".8" stroke-dasharray="4,3" opacity=".4"/>
+          <line x1="196" y1="155" x2="200" y2="85" stroke="#b47b3f" stroke-width=".8" stroke-dasharray="4,3" opacity=".4"/>
+          <line x1="75" y1="90" x2="200" y2="85" stroke="#b47b3f" stroke-width=".8" stroke-dasharray="4,3" opacity=".3"/>
+          <line x1="196" y1="195" x2="200" y2="220" stroke="#b47b3f" stroke-width=".8" stroke-dasharray="4,3" opacity=".35"/>
+
+          <!-- USA/NM node -->
+          <circle cx="75" cy="90" r="6" fill="#b47b3f" opacity=".9" class="dot-pulse"/>
+          <circle cx="75" cy="90" r="10" fill="none" stroke="#b47b3f" stroke-width="1" opacity=".3"/>
+          <!-- Morocco/Algeria node -->
+          <circle cx="200" cy="85" r="5" fill="#b47b3f" opacity=".8" class="dot-pulse-2"/>
+          <circle cx="200" cy="85" r="9" fill="none" stroke="#b47b3f" stroke-width="1" opacity=".25"/>
+          <!-- Senegal/West Africa node -->
+          <circle cx="196" cy="155" r="5" fill="#b47b3f" opacity=".8" class="dot-pulse-3"/>
+          <circle cx="196" cy="155" r="9" fill="none" stroke="#b47b3f" stroke-width="1" opacity=".25"/>
+          <!-- UAE/Gulf node -->
+          <circle cx="252" cy="88" r="5" fill="#b47b3f" opacity=".8" class="dot-pulse-4"/>
+          <circle cx="252" cy="88" r="9" fill="none" stroke="#b47b3f" stroke-width="1" opacity=".25"/>
+          <!-- France/Europe node -->
+          <circle cx="196" cy="195" r="5" fill="#b47b3f" opacity=".75" class="dot-pulse-5"/>
+          <circle cx="196" cy="195" r="9" fill="none" stroke="#b47b3f" stroke-width="1" opacity=".2"/>
+          <!-- Sub-Saharan node -->
+          <circle cx="200" cy="220" r="4" fill="#b47b3f" opacity=".7" class="dot-pulse-2"/>
+
+          <!-- Labels -->
+          <text x="55" y="78" font-family="Inter,sans-serif" font-size="8" fill="#b47b3f" opacity=".6" font-weight="600">Americas</text>
+          <text x="180" y="72" font-family="Inter,sans-serif" font-size="8" fill="#b47b3f" opacity=".6" font-weight="600">MENA</text>
+          <text x="177" y="168" font-family="Inter,sans-serif" font-size="8" fill="#b47b3f" opacity=".6" font-weight="600">W. Africa</text>
+          <text x="254" y="78" font-family="Inter,sans-serif" font-size="8" fill="#b47b3f" opacity=".6" font-weight="600">Gulf</text>
+          <text x="180" y="210" font-family="Inter,sans-serif" font-size="8" fill="#b47b3f" opacity=".6" font-weight="600">Europe</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REGIONAL PRESENCE -->
+<section class="bg-cream py-20">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-14 reveal">
+      <h2 class="text-navy font-bold text-4xl mb-3">Our Global Footprint</h2>
+      <div class="w-12 h-1 bg-copper mx-auto rounded"></div>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+
+      <div class="bg-white rounded-xl p-6 shadow-sm border-l-4 border-copper reveal">
+        <div class="flex items-start gap-4">
+          <svg class="w-6 h-6 flex-shrink-0 mt-1" fill="none" stroke="#b47b3f" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <div>
+            <h3 class="text-navy font-semibold text-base mb-2">Americas</h3>
+            <p class="text-navy/60 text-sm">Headquarters and operational base in Albuquerque, New Mexico, USA. Artevotrade LLC is incorporated under New Mexico law and maintains its principal administrative functions here, serving clients across North, Central, and South America.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-xl p-6 shadow-sm border-l-4 border-copper reveal reveal-delay-1">
+        <div class="flex items-start gap-4">
+          <svg class="w-6 h-6 flex-shrink-0 mt-1" fill="none" stroke="#b47b3f" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <div>
+            <h3 class="text-navy font-semibold text-base mb-2">Europe</h3>
+            <p class="text-navy/60 text-sm">Active training and consulting partnerships across Western Europe, with multilingual delivery capabilities in French, English, and other European languages. Engagements span corporate clients, hospitality groups, and public sector institutions.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-xl p-6 shadow-sm border-l-4 border-copper reveal">
+        <div class="flex items-start gap-4">
+          <svg class="w-6 h-6 flex-shrink-0 mt-1" fill="none" stroke="#b47b3f" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <div>
+            <h3 class="text-navy font-semibold text-base mb-2">Middle East &amp; North Africa</h3>
+            <p class="text-navy/60 text-sm">Corporate, hospitality, and government sector engagements across the MENA region, with particular depth in the Gulf states and North Africa. Arabic-language delivery and culturally adapted program design are core capabilities here.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-xl p-6 shadow-sm border-l-4 border-copper reveal reveal-delay-1">
+        <div class="flex items-start gap-4">
+          <svg class="w-6 h-6 flex-shrink-0 mt-1" fill="none" stroke="#b47b3f" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <div>
+            <h3 class="text-navy font-semibold text-base mb-2">Sub-Saharan Africa</h3>
+            <p class="text-navy/60 text-sm">Capacity-building programs launched across West, Central, and East Africa in partnership with educational institutions, NGOs, and public sector organizations. Programs are designed for sustainability and internal knowledge transfer.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section class="bg-white py-20">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-14 reveal">
+      <h2 class="text-navy font-bold text-4xl mb-3">Our Journey</h2>
+      <div class="w-12 h-1 bg-copper mx-auto rounded"></div>
+    </div>
+    <div>
+
+      <div class="timeline-entry reveal">
+        <p class="text-copper font-bold text-lg mb-1">Early 2000s</p>
+        <h3 class="text-navy font-semibold text-base mb-2">Foundation</h3>
+        <p class="text-navy/70 text-sm">Artevotrade LLC established in Albuquerque, New Mexico. Initial focus on professional training and pedagogical engineering, serving clients in the United States and developing the firm's instructional design methodology.</p>
+      </div>
+
+      <div class="timeline-entry reveal">
+        <p class="text-copper font-bold text-lg mb-1">Mid 2000s</p>
+        <h3 class="text-navy font-semibold text-base mb-2">European Expansion</h3>
+        <p class="text-navy/70 text-sm">First international partnerships established with training organizations in Western Europe. Multilingual delivery capacity developed in French and English. First cross-border training programs designed and delivered.</p>
+      </div>
+
+      <div class="timeline-entry reveal">
+        <p class="text-copper font-bold text-lg mb-1">2010s</p>
+        <h3 class="text-navy font-semibold text-base mb-2">MENA Entry</h3>
+        <p class="text-navy/70 text-sm">Strategic engagement with hospitality and corporate sectors in the Middle East and North Africa. The food &amp; beverage consulting practice formally established. Arabic-language program delivery capacity built through local expert partnerships.</p>
+      </div>
+
+      <div class="timeline-entry reveal">
+        <p class="text-copper font-bold text-lg mb-1">2010s–2020s</p>
+        <h3 class="text-navy font-semibold text-base mb-2">Africa Operations</h3>
+        <p class="text-navy/70 text-sm">Capacity-building programs launched across Sub-Saharan Africa in partnership with educational institutions, international NGOs, and government training institutes. A new emphasis on train-the-trainer models for institutional sustainability.</p>
+      </div>
+
+      <div class="timeline-entry reveal" style="margin-bottom:0;border-left-color:transparent;">
+        <div style="position:absolute;left:-7px;top:4px;width:12px;height:12px;border-radius:50%;background:#b47b3f;"></div>
+        <p class="text-copper font-bold text-lg mb-1">2020s</p>
+        <h3 class="text-navy font-semibold text-base mb-2">Technology Transfer</h3>
+        <p class="text-navy/70 text-sm">AI-augmented solutions and digital transformation advisory practice introduced to complement existing training services. Artevotrade now supports organizations in integrating technology effectively into their operational and learning ecosystems.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CORE VALUES -->
+<section class="bg-navy py-20">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-14 reveal">
+      <h2 class="text-cream font-bold text-4xl mb-3">Our Core Values</h2>
+      <div class="w-12 h-1 bg-copper mx-auto rounded"></div>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+
+      <div class="bg-white/5 rounded-2xl p-8 reveal">
+        <div class="mb-5">
+          <svg class="w-12 h-12" fill="none" stroke="#b47b3f" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+        </div>
+        <h3 class="text-cream font-bold text-xl mb-3">Operational Excellence</h3>
+        <p class="text-cream/70 text-sm">We hold ourselves to the highest professional standards in every engagement. Our methodologies are rigorous, our timelines respected, and our deliverables consistently exceed client expectations. Quality is not negotiable.</p>
+      </div>
+
+      <div class="bg-white/5 rounded-2xl p-8 reveal reveal-delay-1">
+        <div class="mb-5">
+          <svg class="w-12 h-12" fill="none" stroke="#b47b3f" stroke-width="1.5" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <h3 class="text-cream font-bold text-xl mb-3">Knowledge Transfer</h3>
+        <p class="text-cream/70 text-sm">We believe in building permanent capabilities within organizations, not recurring dependency. Every program we design is built to transfer real, applicable knowledge that grows and compounds long after the engagement concludes.</p>
+      </div>
+
+      <div class="bg-white/5 rounded-2xl p-8 reveal">
+        <div class="mb-5">
+          <svg class="w-12 h-12" fill="none" stroke="#b47b3f" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        </div>
+        <h3 class="text-cream font-bold text-xl mb-3">Cultural Adaptation</h3>
+        <p class="text-cream/70 text-sm">Generic programs don't change organizations. We invest deeply in understanding the local culture, language, sector context, and organizational dynamics before designing anything. Cultural relevance is built into every deliverable from the first line.</p>
+      </div>
+
+      <div class="bg-white/5 rounded-2xl p-8 reveal reveal-delay-1">
+        <div class="mb-5">
+          <svg class="w-12 h-12" fill="none" stroke="#b47b3f" stroke-width="1.5" viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><line x1="2" y1="20" x2="22" y2="20"/></svg>
+        </div>
+        <h3 class="text-cream font-bold text-xl mb-3">Measurable Impact</h3>
+        <p class="text-cream/70 text-sm">Every engagement begins with defining success metrics. We use pre- and post-assessment frameworks, KPI dashboards, and post-delivery impact reports to ensure our clients can demonstrate the return on their investment in clear, quantifiable terms.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="bg-cream py-20">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-14 reveal">
+      <h2 class="text-navy font-bold text-4xl mb-3">Why Organizations Choose Us</h2>
+      <div class="w-12 h-1 bg-copper mx-auto rounded"></div>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+
+      <div class="flex items-start gap-5 reveal">
+        <div class="flex-shrink-0 w-12 h-12 rounded-full bg-navy flex items-center justify-center">
+          <svg class="w-6 h-6" fill="none" stroke="#b47b3f" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 0 0 1.946-.806 3.42 3.42 0 0 1 4.438 0 3.42 3.42 0 0 0 1.946.806 3.42 3.42 0 0 1 3.138 3.138 3.42 3.42 0 0 0 .806 1.946 3.42 3.42 0 0 1 0 4.438 3.42 3.42 0 0 0-.806 1.946 3.42 3.42 0 0 1-3.138 3.138 3.42 3.42 0 0 0-1.946.806 3.42 3.42 0 0 1-4.438 0 3.42 3.42 0 0 0-1.946-.806 3.42 3.42 0 0 1-3.138-3.138 3.42 3.42 0 0 0-.806-1.946 3.42 3.42 0 0 1 0-4.438 3.42 3.42 0 0 0 .806-1.946 3.42 3.42 0 0 1 3.138-3.138z"/></svg>
+        </div>
+        <div>
+          <h3 class="text-navy font-semibold text-lg mb-2">Proven Track Record</h3>
+          <p class="text-navy/60 text-sm">Over two decades of delivering complex, cross-cultural training and consulting engagements across four continents — with client relationships that span years, not projects.</p>
+        </div>
+      </div>
+
+      <div class="flex items-start gap-5 reveal reveal-delay-1">
+        <div class="flex-shrink-0 w-12 h-12 rounded-full bg-navy flex items-center justify-center">
+          <svg class="w-6 h-6" fill="none" stroke="#b47b3f" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <div>
+          <h3 class="text-navy font-semibold text-lg mb-2">Expert Practitioners</h3>
+          <p class="text-navy/60 text-sm">Our team comprises former industry professionals — not just trainers. Each specialist brings real operational experience in their domain, ensuring practical, applicable insights are embedded in every program.</p>
+        </div>
+      </div>
+
+      <div class="flex items-start gap-5 reveal reveal-delay-2">
+        <div class="flex-shrink-0 w-12 h-12 rounded-full bg-navy flex items-center justify-center">
+          <svg class="w-6 h-6" fill="none" stroke="#b47b3f" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div>
+          <h3 class="text-navy font-semibold text-lg mb-2">End-to-End Partnership</h3>
+          <p class="text-navy/60 text-sm">From needs assessment through delivery to post-engagement evaluation, Artevotrade manages every phase of the consulting relationship. Our clients receive a single, accountable partner — not a chain of subcontractors.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT CTA -->
+<section class="py-20" style="background:linear-gradient(135deg,#b47b3f 0%,#c8923d 50%,#d4a050 100%);">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <h2 class="text-cream font-bold text-3xl mb-4 reveal">Ready to work with Artevotrade?</h2>
+    <p class="text-cream/80 text-base mb-8 reveal reveal-delay-1">Contact us for a tailored needs assessment and consultation.</p>
+    <a href="contact.html" class="inline-flex items-center justify-center bg-navy text-cream px-10 py-4 rounded font-semibold text-sm btn-primary min-h-[48px] reveal reveal-delay-2">Get in Touch</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-navy text-cream">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+      <div>
+        <a href="index.html" class="inline-block mb-4">
+          <svg viewBox="0 0 200 50" width="180" height="45" xmlns="http://www.w3.org/2000/svg">
             <circle cx="25" cy="25" r="22" fill="none" stroke="#b47b3f" stroke-width="2"/>
             <circle cx="25" cy="25" r="14" fill="none" stroke="#b47b3f" stroke-width="1" stroke-dasharray="3,2"/>
             <line x1="25" y1="3" x2="25" y2="47" stroke="#b47b3f" stroke-width="1.5"/>
@@ -51,425 +366,81 @@
             <text x="181" y="20" font-family="Inter,sans-serif" font-weight="600" font-size="9" fill="#b47b3f">LLC</text>
           </svg>
         </a>
-        <nav class="hidden md:flex items-center gap-8">
-          <a href="index.html" class="text-cream text-sm font-medium hover:text-copper transition-colors pb-1">Home</a>
-          <a href="about.html" class="text-copper text-sm font-medium pb-1 border-b-2 border-copper">About</a>
-          <a href="services.html" class="text-cream text-sm font-medium hover:text-copper transition-colors pb-1">Services</a>
-          <a href="contact.html" class="bg-copper text-white text-sm font-semibold px-5 py-2 rounded hover:bg-amber-600 transition-colors min-h-[44px] flex items-center">Contact</a>
-        </nav>
-        <button id="hamburger" class="md:hidden text-cream focus:outline-none min-h-[44px] min-w-[44px] flex items-center justify-center" aria-label="Toggle menu">
-          <svg id="icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-          </svg>
-          <svg id="icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-          </svg>
-        </button>
+        <p class="text-cream/60 text-sm leading-relaxed mb-4">International professional training consultancy and technology transfer firm operating worldwide.</p>
+        <p class="text-cream/50 text-xs">1209 Mountain Road PL NE, Ste N<br>Albuquerque, NM 87110, USA</p>
+      </div>
+      <div>
+        <h4 class="text-cream font-semibold text-sm uppercase tracking-wider mb-5" style="letter-spacing:.15em;">Navigation</h4>
+        <ul class="space-y-3">
+          <li><a href="index.html" class="text-cream/60 text-sm hover:text-copper transition-colors">Home</a></li>
+          <li><a href="about.html" class="text-cream/60 text-sm hover:text-copper transition-colors">About</a></li>
+          <li><a href="services.html" class="text-cream/60 text-sm hover:text-copper transition-colors">Services</a></li>
+          <li><a href="contact.html" class="text-cream/60 text-sm hover:text-copper transition-colors">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-cream font-semibold text-sm uppercase tracking-wider mb-5" style="letter-spacing:.15em;">Legal</h4>
+        <ul class="space-y-3">
+          <li><a href="terms.html" class="text-cream/60 text-sm hover:text-copper transition-colors">Terms of Service</a></li>
+          <li><a href="privacy.html" class="text-cream/60 text-sm hover:text-copper transition-colors">Privacy Policy</a></li>
+          <li><a href="cookies.html" class="text-cream/60 text-sm hover:text-copper transition-colors">Cookie Policy</a></li>
+          <li><a href="refund.html" class="text-cream/60 text-sm hover:text-copper transition-colors">Refund Policy</a></li>
+          <li><a href="legal.html" class="text-cream/60 text-sm hover:text-copper transition-colors">Legal Notice</a></li>
+          <li><a href="accessibility.html" class="text-cream/60 text-sm hover:text-copper transition-colors">Accessibility</a></li>
+          <li><a href="disclaimer.html" class="text-cream/60 text-sm hover:text-copper transition-colors">Disclaimer</a></li>
+          <li><a href="aml.html" class="text-cream/60 text-sm hover:text-copper transition-colors">AML Policy</a></li>
+          <li><a href="dpa.html" class="text-cream/60 text-sm hover:text-copper transition-colors">DPA</a></li>
+        </ul>
       </div>
     </div>
-    <div id="mobile-menu" class="hidden md:hidden bg-navy border-t border-white/10">
-      <div class="px-4 py-4 flex flex-col gap-4">
-        <a href="index.html" class="text-cream text-sm font-medium hover:text-copper transition-colors py-2">Home</a>
-        <a href="about.html" class="text-copper text-sm font-semibold py-2">About</a>
-        <a href="services.html" class="text-cream text-sm font-medium hover:text-copper transition-colors py-2">Services</a>
-        <a href="contact.html" class="text-cream text-sm font-medium hover:text-copper transition-colors py-2">Contact</a>
-      </div>
-    </div>
-  </header>
-
-  <!-- HERO -->
-  <section class="bg-navy py-24">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <p class="text-copper text-sm font-semibold uppercase tracking-widest mb-3">Our Story</p>
-      <h1 class="text-cream text-4xl sm:text-5xl font-extrabold mb-4">About Artevotrade LLC</h1>
-      <div class="w-16 h-1 bg-copper mx-auto rounded-full mb-5"></div>
-      <p class="text-cream/60 text-lg max-w-2xl mx-auto">An international firm built on expertise, cultural intelligence, and a commitment to measurable outcomes.</p>
-    </div>
-  </section>
-
-  <!-- WHO WE ARE -->
-  <section class="py-20 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-        <div class="reveal">
-          <p class="text-copper text-sm font-semibold uppercase tracking-widest mb-3">Who We Are</p>
-          <h2 class="text-navy text-3xl font-bold mb-6">A Global Consultancy Rooted in Operational Excellence</h2>
-          <p class="text-navy/70 leading-relaxed mb-4">
-            Artevotrade LLC is an international professional training consultancy and technology transfer firm headquartered in Albuquerque, New Mexico, USA. We partner with organizations across Europe, the Middle East, North Africa, Sub-Saharan Africa, and the Americas to design and deliver high-impact training programs, operational consulting, and technology integration strategies.
-          </p>
-          <p class="text-navy/70 leading-relaxed mb-6">
-            Our firm brings together decades of combined expertise across professional education, hospitality, food &amp; beverage operations, digital transformation, and organizational development. We operate with a client-first philosophy: every engagement begins with a deep understanding of your context, your challenges, and your ambitions.
-          </p>
-          <div class="grid grid-cols-3 gap-4 mt-6">
-            <div class="bg-cream rounded-xl p-4 text-center">
-              <p class="text-copper font-bold text-sm">Founded</p>
-              <p class="text-navy/60 text-xs mt-1">in USA</p>
-            </div>
-            <div class="bg-cream rounded-xl p-4 text-center">
-              <p class="text-copper font-bold text-sm">Operations</p>
-              <p class="text-navy/60 text-xs mt-1">Worldwide</p>
-            </div>
-            <div class="bg-cream rounded-xl p-4 text-center">
-              <p class="text-copper font-bold text-sm">Multi</p>
-              <p class="text-navy/60 text-xs mt-1">lingual</p>
-            </div>
-          </div>
-        </div>
-        <div class="reveal flex justify-center">
-          <!-- Abstract world map outline SVG -->
-          <svg viewBox="0 0 400 280" width="400" height="280" xmlns="http://www.w3.org/2000/svg" class="opacity-70">
-            <!-- Simplified world map outlines -->
-            <rect x="0" y="0" width="400" height="280" fill="none"/>
-            <!-- Grid lines -->
-            <line x1="0" y1="140" x2="400" y2="140" stroke="#b47b3f" stroke-width="0.5" opacity="0.3"/>
-            <line x1="200" y1="0" x2="200" y2="280" stroke="#b47b3f" stroke-width="0.5" opacity="0.3"/>
-            <ellipse cx="200" cy="140" rx="195" ry="135" fill="none" stroke="#1a1f3a" stroke-width="1.5" opacity="0.2"/>
-            <!-- Americas -->
-            <path d="M60,60 L75,55 L80,65 L85,80 L78,95 L72,110 L68,130 L62,150 L58,170 L55,155 L50,140 L52,120 L55,100 L58,80 Z" fill="#b47b3f" opacity="0.15" stroke="#b47b3f" stroke-width="1"/>
-            <path d="M70,175 L75,180 L72,200 L68,210 L60,215 L55,205 L58,190 Z" fill="#b47b3f" opacity="0.1" stroke="#b47b3f" stroke-width="1"/>
-            <!-- Europe -->
-            <path d="M175,60 L190,55 L200,60 L205,70 L198,78 L190,75 L182,80 L178,72 Z" fill="#1a1f3a" opacity="0.12" stroke="#1a1f3a" stroke-width="1"/>
-            <!-- Africa -->
-            <path d="M180,90 L200,85 L215,90 L220,110 L218,135 L210,160 L200,175 L188,165 L182,145 L178,120 L178,100 Z" fill="#b47b3f" opacity="0.12" stroke="#b47b3f" stroke-width="1"/>
-            <!-- Asia -->
-            <path d="M215,55 L260,50 L290,55 L300,65 L295,80 L275,85 L255,82 L235,78 L220,70 Z" fill="#1a1f3a" opacity="0.1" stroke="#1a1f3a" stroke-width="1"/>
-            <!-- Middle East -->
-            <path d="M215,85 L235,82 L238,100 L230,108 L218,105 Z" fill="#b47b3f" opacity="0.2" stroke="#b47b3f" stroke-width="1"/>
-            <!-- Australia -->
-            <path d="M298,160 L320,155 L335,162 L330,180 L315,185 L300,178 Z" fill="#1a1f3a" opacity="0.1" stroke="#1a1f3a" stroke-width="1"/>
-            <!-- Location dots -->
-            <circle cx="65" cy="120" r="5" fill="#b47b3f" opacity="0.8"/><!-- Americas HQ -->
-            <circle cx="185" cy="68" r="4" fill="#b47b3f" opacity="0.6"/><!-- Europe -->
-            <circle cx="220" cy="95" r="4" fill="#b47b3f" opacity="0.6"/><!-- MENA -->
-            <circle cx="195" cy="140" r="4" fill="#b47b3f" opacity="0.6"/><!-- Sub-Saharan Africa -->
-            <!-- Legend label -->
-            <text x="200" y="265" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" fill="#1a1f3a" opacity="0.4">Global Operations — Americas · Europe · MENA · Africa</text>
-          </svg>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- REGIONAL PRESENCE -->
-  <section class="py-20 bg-cream">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-14">
-        <p class="text-copper text-sm font-semibold uppercase tracking-widest mb-2">Geography</p>
-        <h2 class="text-navy text-3xl font-bold mb-3">Our Global Footprint</h2>
-        <div class="w-16 h-1 bg-copper mx-auto rounded-full"></div>
-        <p class="text-navy/50 mt-4 max-w-xl mx-auto">Artevotrade LLC operates across four major regions, adapting its programs to local regulatory, cultural, and linguistic realities.</p>
-      </div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div class="card-hover bg-navy rounded-2xl p-8 text-center reveal">
-          <div class="w-12 h-12 bg-copper/20 rounded-full flex items-center justify-center mx-auto mb-4">
-            <svg class="w-6 h-6 text-copper" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
-            </svg>
-          </div>
-          <h3 class="text-copper font-bold text-lg mb-1">Americas</h3>
-          <p class="text-cream/60 text-xs mb-2 uppercase tracking-wide">Headquarters</p>
-          <p class="text-cream/70 text-sm">Albuquerque, NM, USA — our founding home and administrative center.</p>
-        </div>
-        <div class="card-hover bg-white border border-navy/10 rounded-2xl p-8 text-center shadow-sm reveal">
-          <div class="w-12 h-12 bg-copper/10 rounded-full flex items-center justify-center mx-auto mb-4">
-            <svg class="w-6 h-6 text-copper" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
-            </svg>
-          </div>
-          <h3 class="text-navy font-bold text-lg mb-2">Europe</h3>
-          <p class="text-navy/60 text-sm">Training design, pedagogical consulting, and technology advisory services across European markets.</p>
-        </div>
-        <div class="card-hover bg-white border border-navy/10 rounded-2xl p-8 text-center shadow-sm reveal">
-          <div class="w-12 h-12 bg-copper/10 rounded-full flex items-center justify-center mx-auto mb-4">
-            <svg class="w-6 h-6 text-copper" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
-            </svg>
-          </div>
-          <h3 class="text-navy font-bold text-lg mb-2">Middle East &amp; North Africa</h3>
-          <p class="text-navy/60 text-sm">Hospitality, F&amp;B, and workforce development programs aligned with regional growth priorities.</p>
-        </div>
-        <div class="card-hover bg-white border border-navy/10 rounded-2xl p-8 text-center shadow-sm reveal">
-          <div class="w-12 h-12 bg-copper/10 rounded-full flex items-center justify-center mx-auto mb-4">
-            <svg class="w-6 h-6 text-copper" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
-            </svg>
-          </div>
-          <h3 class="text-navy font-bold text-lg mb-2">Sub-Saharan Africa</h3>
-          <p class="text-navy/60 text-sm">Capacity building, institutional training, and technology transfer supporting sustainable development goals.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- TIMELINE -->
-  <section class="py-20 bg-white">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-14">
-        <p class="text-copper text-sm font-semibold uppercase tracking-widest mb-2">History</p>
-        <h2 class="text-navy text-3xl font-bold mb-3">Our Journey</h2>
-        <div class="w-16 h-1 bg-copper mx-auto rounded-full"></div>
-      </div>
-      <div class="relative">
-        <div class="absolute left-6 top-0 bottom-0 w-0.5 bg-copper/30"></div>
-        <div class="space-y-10">
-          <div class="relative flex items-start gap-8 reveal">
-            <div class="w-12 h-12 bg-copper rounded-full flex items-center justify-center flex-shrink-0 z-10 shadow-md">
-              <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-            </div>
-            <div class="pt-2">
-              <p class="text-copper text-xs font-semibold uppercase tracking-wider mb-1">Founded</p>
-              <h3 class="text-navy font-bold text-lg mb-1">Artevotrade LLC Established</h3>
-              <p class="text-navy/60 text-sm">Artevotrade LLC incorporated in Albuquerque, New Mexico — establishing its headquarters and founding mission in professional training and consultancy.</p>
-            </div>
-          </div>
-          <div class="relative flex items-start gap-8 reveal">
-            <div class="w-12 h-12 bg-copper/20 border-2 border-copper rounded-full flex items-center justify-center flex-shrink-0 z-10">
-              <svg class="w-5 h-5 text-copper" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064"/></svg>
-            </div>
-            <div class="pt-2">
-              <p class="text-copper text-xs font-semibold uppercase tracking-wider mb-1">First International Projects</p>
-              <h3 class="text-navy font-bold text-lg mb-1">Expansion to European &amp; MENA Markets</h3>
-              <p class="text-navy/60 text-sm">Initial international engagements launched across European and Middle East &amp; North Africa training markets, establishing our global delivery model.</p>
-            </div>
-          </div>
-          <div class="relative flex items-start gap-8 reveal">
-            <div class="w-12 h-12 bg-copper/20 border-2 border-copper rounded-full flex items-center justify-center flex-shrink-0 z-10">
-              <svg class="w-5 h-5 text-copper" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-            </div>
-            <div class="pt-2">
-              <p class="text-copper text-xs font-semibold uppercase tracking-wider mb-1">Hospitality Division</p>
-              <h3 class="text-navy font-bold text-lg mb-1">Dedicated F&amp;B &amp; Hospitality Practice Launched</h3>
-              <p class="text-navy/60 text-sm">A dedicated hospitality and food &amp; beverage consulting practice formalized, addressing demand from hotels, restaurants, and catering groups globally.</p>
-            </div>
-          </div>
-          <div class="relative flex items-start gap-8 reveal">
-            <div class="w-12 h-12 bg-copper/20 border-2 border-copper rounded-full flex items-center justify-center flex-shrink-0 z-10">
-              <svg class="w-5 h-5 text-copper" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/></svg>
-            </div>
-            <div class="pt-2">
-              <p class="text-copper text-xs font-semibold uppercase tracking-wider mb-1">Technology Transfer</p>
-              <h3 class="text-navy font-bold text-lg mb-1">AI-Augmented Solutions Practice Introduced</h3>
-              <p class="text-navy/60 text-sm">Expansion into technology transfer advisory and AI-augmented workflow design, enabling clients to navigate digital transformation with confidence.</p>
-            </div>
-          </div>
-          <div class="relative flex items-start gap-8 reveal">
-            <div class="w-12 h-12 bg-copper/20 border-2 border-copper rounded-full flex items-center justify-center flex-shrink-0 z-10">
-              <svg class="w-5 h-5 text-copper" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-            </div>
-            <div class="pt-2">
-              <p class="text-copper text-xs font-semibold uppercase tracking-wider mb-1">Global Partnerships</p>
-              <h3 class="text-navy font-bold text-lg mb-1">Active Partnerships Across 3+ Continents</h3>
-              <p class="text-navy/60 text-sm">A robust network of vetted local partners established across the Americas, Europe, MENA, and Sub-Saharan Africa, enabling seamless multi-market delivery.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CORE VALUES -->
-  <section class="py-20 bg-cream">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-14">
-        <p class="text-copper text-sm font-semibold uppercase tracking-widest mb-2">How We Work</p>
-        <h2 class="text-navy text-3xl font-bold mb-3">Core Values</h2>
-        <div class="w-16 h-1 bg-copper mx-auto rounded-full"></div>
-      </div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div class="bg-white rounded-2xl p-8 text-center shadow-sm reveal">
-          <div class="w-14 h-14 bg-copper/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
-            <svg class="w-7 h-7 text-copper" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
-            </svg>
-          </div>
-          <h3 class="text-navy font-bold mb-2">Operational Excellence</h3>
-          <p class="text-navy/60 text-sm leading-relaxed">Rigorous methodology applied consistently across every engagement, with measurable outcomes.</p>
-        </div>
-        <div class="bg-white rounded-2xl p-8 text-center shadow-sm reveal">
-          <div class="w-14 h-14 bg-copper/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
-            <svg class="w-7 h-7 text-copper" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/>
-            </svg>
-          </div>
-          <h3 class="text-navy font-bold mb-2">Knowledge Transfer</h3>
-          <p class="text-navy/60 text-sm leading-relaxed">Building internal capacity that genuinely outlasts our engagement — our clients become self-sufficient.</p>
-        </div>
-        <div class="bg-white rounded-2xl p-8 text-center shadow-sm reveal">
-          <div class="w-14 h-14 bg-copper/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
-            <svg class="w-7 h-7 text-copper" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9"/>
-            </svg>
-          </div>
-          <h3 class="text-navy font-bold mb-2">Cultural Adaptation</h3>
-          <p class="text-navy/60 text-sm leading-relaxed">Programs localized for linguistic context, cultural norms, and sector-specific professional codes.</p>
-        </div>
-        <div class="bg-white rounded-2xl p-8 text-center shadow-sm reveal">
-          <div class="w-14 h-14 bg-copper/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
-            <svg class="w-7 h-7 text-copper" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
-            </svg>
-          </div>
-          <h3 class="text-navy font-bold mb-2">Measurable Impact</h3>
-          <p class="text-navy/60 text-sm leading-relaxed">Every engagement defined by clear KPIs and independently evaluated post-training outcomes.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- WHY US -->
-  <section class="py-20 bg-navy">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-10">
-        <p class="text-copper text-sm font-semibold uppercase tracking-widest mb-2">Our Advantages</p>
-        <h2 class="text-cream text-3xl font-bold mb-3">Why Choose Artevotrade LLC</h2>
-        <div class="w-16 h-1 bg-copper mx-auto rounded-full"></div>
-      </div>
-      <div class="bg-white/5 border border-white/10 rounded-2xl p-8 space-y-6 reveal">
-        <div class="flex items-start gap-4">
-          <div class="w-8 h-8 bg-copper/20 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-            <svg class="w-4 h-4 text-copper" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-          </div>
-          <div>
-            <h4 class="text-cream font-semibold mb-1">Decades of Cross-Sector Expertise</h4>
-            <p class="text-cream/60 text-sm leading-relaxed">Our team combines over 35 years of cumulative experience across professional training, hospitality, technology, and international development, enabling a uniquely integrated approach.</p>
-          </div>
-        </div>
-        <div class="flex items-start gap-4">
-          <div class="w-8 h-8 bg-copper/20 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-            <svg class="w-4 h-4 text-copper" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-          </div>
-          <div>
-            <h4 class="text-cream font-semibold mb-1">Proven Global Partnerships</h4>
-            <p class="text-cream/60 text-sm leading-relaxed">We maintain a network of vetted local partners across operating regions, enabling rapid deployment and authentic cultural integration without compromising our standards.</p>
-          </div>
-        </div>
-        <div class="flex items-start gap-4">
-          <div class="w-8 h-8 bg-copper/20 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-            <svg class="w-4 h-4 text-copper" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-          </div>
-          <div>
-            <h4 class="text-cream font-semibold mb-1">Tailored, Scalable Solutions</h4>
-            <p class="text-cream/60 text-sm leading-relaxed">No two clients receive the same solution. Our proprietary needs-analysis methodology ensures every program is purpose-built, scalable, and aligned with your strategic objectives.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section class="bg-copper py-16">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h2 class="text-white text-3xl font-bold mb-4">Explore What We Offer</h2>
-      <p class="text-white/80 mb-8">Discover our full range of professional services and sector capabilities.</p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="services.html" class="inline-block bg-navy text-cream font-semibold px-8 py-4 rounded-lg hover:bg-navy/80 transition-colors text-sm min-h-[44px] flex items-center justify-center">View Our Services</a>
-        <a href="contact.html" class="inline-block border-2 border-white text-white font-semibold px-8 py-4 rounded-lg hover:bg-white hover:text-copper transition-colors text-sm min-h-[44px] flex items-center justify-center">Get in Touch</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="bg-navy text-cream">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-        <div>
-          <a href="index.html" class="inline-block mb-3">
-            <svg viewBox="0 0 200 50" width="180" height="45" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="25" cy="25" r="22" fill="none" stroke="#b47b3f" stroke-width="2"/>
-              <circle cx="25" cy="25" r="14" fill="none" stroke="#b47b3f" stroke-width="1" stroke-dasharray="3,2"/>
-              <line x1="25" y1="3" x2="25" y2="47" stroke="#b47b3f" stroke-width="1.5"/>
-              <line x1="3" y1="25" x2="47" y2="25" stroke="#b47b3f" stroke-width="1.5"/>
-              <circle cx="25" cy="25" r="3" fill="#b47b3f"/>
-              <polygon points="25,5 22,12 28,12" fill="#b47b3f"/>
-              <text x="56" y="32" font-family="Inter,sans-serif" font-weight="700" font-size="17" fill="#f4ecdd" letter-spacing="1">ARTEVOTRADE</text>
-              <text x="181" y="20" font-family="Inter,sans-serif" font-weight="600" font-size="9" fill="#b47b3f">LLC</text>
-            </svg>
-          </a>
-          <p class="text-cream/60 text-sm leading-relaxed mb-4">International professional training, hospitality consulting, and technology transfer firm operating worldwide.</p>
-          <p class="text-cream/50 text-xs">1209 Mountain Road PL NE, Ste N<br/>Albuquerque, NM 87110, USA</p>
-        </div>
-        <div>
-          <h4 class="text-cream font-semibold text-sm uppercase tracking-wider mb-5">Navigation</h4>
-          <ul class="space-y-3">
-            <li><a href="index.html" class="text-cream/60 text-sm hover:text-copper transition-colors">Home</a></li>
-            <li><a href="about.html" class="text-cream/60 text-sm hover:text-copper transition-colors">About</a></li>
-            <li><a href="services.html" class="text-cream/60 text-sm hover:text-copper transition-colors">Services</a></li>
-            <li><a href="contact.html" class="text-cream/60 text-sm hover:text-copper transition-colors">Contact</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4 class="text-cream font-semibold text-sm uppercase tracking-wider mb-5">Legal</h4>
-          <ul class="space-y-3">
-            <li><a href="terms.html" class="text-cream/60 text-sm hover:text-copper transition-colors">Terms of Service</a></li>
-            <li><a href="privacy.html" class="text-cream/60 text-sm hover:text-copper transition-colors">Privacy Policy</a></li>
-            <li><a href="cookies.html" class="text-cream/60 text-sm hover:text-copper transition-colors">Cookie Policy</a></li>
-            <li><a href="refund.html" class="text-cream/60 text-sm hover:text-copper transition-colors">Refund Policy</a></li>
-            <li><a href="legal.html" class="text-cream/60 text-sm hover:text-copper transition-colors">Legal Notice</a></li>
-            <li><a href="accessibility.html" class="text-cream/60 text-sm hover:text-copper transition-colors">Accessibility</a></li>
-            <li><a href="disclaimer.html" class="text-cream/60 text-sm hover:text-copper transition-colors">Disclaimer</a></li>
-            <li><a href="aml.html" class="text-cream/60 text-sm hover:text-copper transition-colors">AML Policy</a></li>
-            <li><a href="dpa.html" class="text-cream/60 text-sm hover:text-copper transition-colors">DPA</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="border-t border-white/10 mt-12 pt-8 text-center">
-        <p class="text-cream/40 text-xs">© 2025-2026 Artevotrade LLC. All rights reserved.</p>
-      </div>
-    </div>
-  </footer>
-
-  <!-- COOKIE BANNER -->
-  <div id="cookie-banner" class="fixed bottom-0 left-0 right-0 z-50 bg-navy border-t border-copper/30 shadow-2xl px-4 py-4 hidden">
-    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-      <p class="text-cream/80 text-sm text-center sm:text-left">
-        We use cookies to improve your experience. By continuing, you accept our
-        <a href="cookies.html" class="text-copper underline hover:text-amber-400 transition-colors">Cookie Policy</a>.
-      </p>
-      <div class="flex items-center gap-3 flex-shrink-0">
-        <a href="cookies.html" class="text-cream/60 text-sm hover:text-cream transition-colors">Learn More</a>
-        <button id="accept-cookies" class="bg-copper text-white text-sm font-semibold px-6 py-2 rounded hover:bg-amber-600 transition-colors min-h-[44px]">Accept</button>
-      </div>
+    <div class="border-t border-white/10 mt-12 pt-8 text-center">
+      <p class="text-cream/40 text-xs">© 2025-2026 Artevotrade LLC. All rights reserved.</p>
     </div>
   </div>
+</footer>
 
-  <!-- BACK TO TOP -->
-  <button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" class="fixed bottom-24 right-6 z-40 bg-copper text-white w-11 h-11 rounded-full shadow-lg items-center justify-center hidden hover:bg-amber-700 transition-all duration-300" aria-label="Back to top">
-    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"/></svg>
-  </button>
+<!-- COOKIE BANNER -->
+<div id="cookie-banner" class="fixed bottom-0 left-0 right-0 z-50 bg-navy border-t border-copper/30 shadow-2xl px-4 py-4 hidden">
+  <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+    <p class="text-cream/80 text-sm text-center sm:text-left">
+      We use cookies to improve your experience. By continuing, you accept our
+      <a href="cookies.html" class="text-copper underline hover:text-amber-400 transition-colors">Cookie Policy</a>.
+    </p>
+    <div class="flex items-center gap-3 flex-shrink-0">
+      <a href="cookies.html" class="text-cream/60 text-sm hover:text-cream transition-colors">Learn More</a>
+      <button id="accept-cookies" class="bg-copper text-white text-sm font-semibold px-6 py-2 rounded hover:bg-amber-600 transition-colors">Accept</button>
+    </div>
+  </div>
+</div>
 
-  <script>
-    const hamburger = document.getElementById('hamburger');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const iconOpen = document.getElementById('icon-open');
-    const iconClose = document.getElementById('icon-close');
-    hamburger.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-      iconOpen.classList.toggle('hidden');
-      iconClose.classList.toggle('hidden');
-    });
-    const cookieBanner = document.getElementById('cookie-banner');
-    const acceptBtn = document.getElementById('accept-cookies');
-    if (!localStorage.getItem('artevotrade_cookies_accepted')) {
-      cookieBanner.classList.remove('hidden');
-    }
-    acceptBtn.addEventListener('click', () => {
-      localStorage.setItem('artevotrade_cookies_accepted', 'true');
-      cookieBanner.classList.add('hidden');
-    });
+<!-- BACK TO TOP -->
+<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" class="fixed bottom-24 right-6 z-40 bg-copper text-white w-11 h-11 rounded-full shadow-lg items-center justify-center hidden hover:bg-amber-700 transition-all duration-300" aria-label="Back to top">
+  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"/></svg>
+</button>
 
-    // Back to top
-    const btt = document.getElementById('back-to-top');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 400) btt.classList.replace('hidden','flex');
-      else btt.classList.replace('flex','hidden');
-    });
+<script>
+  const menuBtn = document.getElementById('menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
 
-    // Scroll reveal
-    const revealEls = document.querySelectorAll('.reveal');
-    const revealObs = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if(e.isIntersecting) { e.target.classList.add('revealed'); revealObs.unobserve(e.target); }});
-    }, {threshold: 0.1});
-    revealEls.forEach(el => revealObs.observe(el));
-  </script>
+  if (!localStorage.getItem('artevotrade_cookies_accepted')) {
+    document.getElementById('cookie-banner').classList.remove('hidden');
+  }
+  document.getElementById('accept-cookies').addEventListener('click', () => {
+    localStorage.setItem('artevotrade_cookies_accepted','true');
+    document.getElementById('cookie-banner').classList.add('hidden');
+  });
+
+  const btt = document.getElementById('back-to-top');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 400) btt.classList.replace('hidden','flex');
+    else btt.classList.replace('flex','hidden');
+  });
+
+  const revealObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('revealed'); revealObs.unobserve(e.target); }});
+  }, {threshold: 0.1});
+  document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+</script>
 </body>
 </html>
